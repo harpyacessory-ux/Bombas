@@ -51,7 +51,7 @@ Palavra-chave principal: **bombas industriais** (no H1 e no título da aba). Cad
 
 **Aplicações** (1200×900, equipamento operando) em `assets/aplicacoes/`: `captacao-de-agua-bruta`, `estacao-elevatoria-de-esgoto`, `drenagem-industrial`, `tratamento-de-efluentes-ete`, `mineracao`.
 
-**Banner do hero** (1981×900): `assets/banner-topo.jpg`. Entra no painel azul atrás do chat.
+**Banner do hero**: `assets/banner-topo.jpg` (incluído). É a arte enviada pelo usuário com as bombas reduzidas e o fundo estendido para cima e para a direita, para o chat ficar sobre a parte escura sem cobrir as bombas. No celular, a arte aparece como um recorte das bombas entre o texto e o chat.
 
 ## Configuração (bloco `CONFIG` no fim do `index.html`)
 
