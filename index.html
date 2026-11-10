@@ -1266,7 +1266,9 @@ var CONFIG = {
   whatsapp: "5581992039379",
   // Link da política de privacidade (placeholder até o cliente enviar)
   privacyUrl: "#",
-  campanha: "Bombas Industriais"
+  campanha: "Bombas Industriais",
+  // Versão das imagens: aumente ao adicionar ou trocar fotos em assets/ (força o navegador a buscar de novo)
+  assetVersion: "2"
 };
 
 /* GTM */
@@ -1307,9 +1309,10 @@ var EXTS = ['.webp','.jpg','.png'];
 function tryImg(base, ok, i){
   i = i || 0; if (i >= EXTS.length) return;
   var im = new Image();
-  im.onload = function(){ ok(base + EXTS[i]); };
+  var url = base + EXTS[i] + '?v=' + CONFIG.assetVersion;
+  im.onload = function(){ ok(url); };
   im.onerror = function(){ tryImg(base, ok, i + 1); };
-  im.src = base + EXTS[i];
+  im.src = url;
 }
 document.querySelectorAll('[data-img]').forEach(function(el){
   tryImg(el.getAttribute('data-img'), function(s){ el.style.backgroundImage = 'url("'+s+'")'; el.classList.add('loaded'); });
