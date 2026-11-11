@@ -761,26 +761,10 @@ html{scroll-padding-top:104px}
   .product .q-btn{align-self:stretch;justify-content:center;padding:12px 20px;font-size:14px}
 }
 
-/* ===== Kronox: cartões horizontais (foto à esquerda, texto à direita) ===== */
+/* ===== Kronox: selo de soluções e fotos preenchendo o cartão ===== */
 #kronox .shelf-count{display:block;position:absolute;top:18px;right:20px;z-index:2;padding:8px 16px;background:rgba(255,255,255,.88);border:1px solid #fff;color:var(--navy-800);font-size:14px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 10px 22px -14px rgba(10,43,87,.5)}
-#kronox .p-ico{display:none}
-#kronox .product .media.contain.loaded{padding:0;background-size:cover;background-position:center}
-#kronox .p-tt{padding-left:0;border-left:0}
-#kronox .p-head{margin-bottom:8px}
-#kronox .q-btn{align-self:flex-start;white-space:nowrap;padding:14px 0 0;background:none;box-shadow:none;color:var(--red-600);font-size:15px}
-#kronox .q-btn:hover{background:none;color:var(--red-700);transform:none}
-#kronox .product-b>p:last-of-type{margin-bottom:0}
-@media (min-width:641px){
-  #kronox .product{display:grid;grid-template-columns:44% minmax(0,1fr);align-items:center;gap:0;padding:12px;background:linear-gradient(135deg,#fff 0%,#f4f8fe 100%)}
-  #kronox .product .media{aspect-ratio:4/3;align-self:center;border-radius:16px;background-color:#eaf2fc}
-  #kronox .product .media.contain.loaded{border-radius:16px}
-  #kronox .product-b{padding:8px 8px 8px 18px}
-  #kronox .p-tt h4{font-size:clamp(17px,1.3vw,20px)}
-  #kronox .product-b p{font-size:14.5px}
-}
-@media (min-width:641px) and (max-width:1200px){
-  #kronox .products{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
+#kronox .product .media{aspect-ratio:16/10}
+#kronox .product .media.contain.loaded{padding:0;background-size:cover;background-position:center 60%}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
