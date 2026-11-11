@@ -830,6 +830,44 @@ html{scroll-padding-top:104px}
   .vitrine .cta-row .btn{width:100%;justify-content:center;padding:16px 24px}
 }
 
+/* ===== Como funciona a locação: fundo em arte, etapas com ícone e canto vermelho ===== */
+.flow-sec{background:linear-gradient(180deg,#f3f8fe 0,#e8f1fc 40%,transparent 60%),#e8f1fc url(assets/locacao-fundo.jpg?v=1) center bottom/100% auto no-repeat}
+.flow-sec .head-left h2{font-size:clamp(34px,4vw,58px);line-height:1.04;letter-spacing:-.035em;color:var(--navy-800)}
+.flow-sec .head-left h2 em{color:var(--red-600)}
+.flow-sec .eyebrow{font-size:13px}
+.flow-intro{align-items:center}
+.flow-intro>div+div{padding-left:clamp(20px,3vw,44px);border-left:2px solid var(--red-600)}
+.flow-intro .q{font-size:clamp(21px,2vw,30px);letter-spacing:-.025em}
+.flow-intro .q+p{font-size:clamp(15.5px,1.2vw,18px);color:#33445e}
+.flow{gap:clamp(14px,1.6vw,22px)}
+.step{display:flex;align-items:center;gap:16px;overflow:hidden;padding:clamp(34px,3vw,42px) 24px 28px;border:1px solid #fff;border-radius:22px;background:rgba(255,255,255,.9);box-shadow:0 24px 48px -30px rgba(6,27,56,.45)}
+.step::before,.step:nth-child(even)::before{top:auto;left:auto;right:0;bottom:0;width:70px;height:34px;border-radius:0;background:var(--red-600);clip-path:polygon(100% 0,100% 100%,0 100%)}
+.step .n{position:absolute;top:0;left:0;width:auto;height:auto;margin:0;padding:6px 22px 6px 14px;border:0;border-radius:22px 0 0 0;background:var(--red-600);color:#fff;font-size:18px;box-shadow:none;clip-path:polygon(0 0,100% 0,82% 100%,0 100%)}
+.s-ico{display:grid;place-items:center;flex:none;width:64px;height:64px;border-radius:16px;background:#f2f6fc;box-shadow:inset 0 0 0 1px #e3ebf6,0 10px 20px -14px rgba(10,43,87,.4)}
+.s-ico .ico{width:34px;height:34px;stroke-width:1.5;color:var(--navy-800)}
+.s-tt{padding-left:16px;border-left:2px solid var(--red-600)}
+.step h3{margin-bottom:6px;font-size:clamp(18px,1.5vw,21px);letter-spacing:-.02em;color:var(--navy-800)}
+.step p{font-size:15px;line-height:1.5;color:#33445e}
+.when{gap:10px;margin-inline:-40px}
+.when b{display:flex;align-items:center;justify-content:center;gap:22px;margin-bottom:6px;font-size:clamp(18px,1.6vw,23px);letter-spacing:-.02em}
+.when b::before,.when b::after{content:"";width:clamp(40px,8vw,120px);height:2px;background:var(--red-600)}
+.when span{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-color:#fff;background:rgba(255,255,255,.92);box-shadow:0 12px 24px -18px rgba(10,43,87,.5);font-size:15px;color:var(--navy-800)}
+.when span .ico{width:20px;height:20px;color:var(--red-600)}
+.flow-sec .cta-row .btn{padding:18px 44px;border-radius:999px;font-size:clamp(17px,1.4vw,20px);box-shadow:0 20px 36px -16px rgba(225,6,47,.75)}
+@media (max-width:900px){
+  .flow-sec{background-size:auto,cover;background-position:0 0,22% bottom}
+  .flow-intro>div+div{padding-left:18px}
+}
+@media (max-width:640px){
+  .step{padding:40px 16px 24px;gap:12px}
+  .s-ico{width:52px;height:52px;border-radius:14px}
+  .s-ico .ico{width:28px;height:28px}
+  .s-tt{padding-left:12px}
+  .when{margin-inline:0}
+  .when span{font-size:13.5px;padding:8px 14px}
+  .flow-sec .cta-row .btn{width:100%;justify-content:center;padding:16px 20px}
+}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -869,7 +907,7 @@ html{scroll-padding-top:104px}
   <symbol id="i-height" viewBox="0 0 24 24"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"/><path d="M3 21h4M17 3h4"/></symbol>
   <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7 15h10"/></symbol>
   <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="4"/></symbol>
-  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3.5 10h17M8 14h2M12 14h2M8 17.5h2"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24"><rect x="5" y="4.5" width="14" height="17" rx="2"/><path d="M9 4.5V3.8c0-.7.5-1.3 1.2-1.3h3.6c.7 0 1.2.6 1.2 1.3v.7M9 3.5h6"/><path d="m8 10 1 1 2-2M13 10.5h3M8 14.5l1 1 2-2M13 15h3M8.5 18.5h7"/></symbol><symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7" ry="2.8"/><path d="M5 5.5v13c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8v-13M5 10c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8M5 14.3c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8"/></symbol><symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2.5H6.5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2H11"/><path d="M14 2.5V7h4.5M14 2.5 18.5 7v5"/><path d="M8 11h7M8 14.5h5M8 18h2"/><path d="m13.5 18.5 2 2 4.5-4.5"/></symbol><symbol id="i-tools" viewBox="0 0 24 24"><path d="M14.5 6.5a3.5 3.5 0 0 0 4.7 4.2l1.3 1.3-2.2 2.2-1.3-1.3M14.5 6.5a3.5 3.5 0 0 1 4.2-3.3l-2.2 2.2.3 2 2 .3 2.2-2.2"/><path d="m15.4 9.8-11 11a1.6 1.6 0 0 1-2.2-2.2l11-11"/><path d="m4 4 2.5-1 4.5 4.5-1.5 1.5L5 4.5zM13 14l6.5 6.5a1.6 1.6 0 0 0 2.2-2.2L15.2 11.8"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 4.5-9 4.5-9-4.5L12 3Z"/><path d="m3 12 9 4.5 9-4.5M3 16.5 12 21l9-4.5"/></symbol><symbol id="i-rocket" viewBox="0 0 24 24"><path d="M14.5 4.5c2.8-1.6 5.5-2 6-1.5s.1 3.2-1.5 6l-6.5 6.5-4-4 6-7Z"/><path d="M8.5 11.5 5 11l-2 2 4.5 1M12.5 15.5l.5 3.5-2 2-1-4.5"/><circle cx="16" cy="8" r="1.4"/><path d="M6 18c-1 .5-2 2.5-2 2.5s2-1 2.5-2"/></symbol><symbol id="i-spark" viewBox="0 0 24 24"><path d="M15 3v3M15 12v3M10.5 7.5h3M16.5 7.5h3M18.5 4l-1.5 1.5M13 10l-1.5 1.5M18.5 11 17 9.5"/><path d="m4 20 6-6M6.5 13l.5 1.5M10.5 17l1.5.5M4 15.5h1.5"/></symbol><symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3.5 10h17M8 14h2M12 14h2M8 17.5h2"/></symbol>
   <symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1.4 1.4 0 0 0 2-2"/><path d="m14 14 2.5 2.5a1.4 1.4 0 0 0 2-2l-3.9-3.9a2 2 0 0 0-2.8 0l-.9.9a1.4 1.4 0 0 1-2-2l2.8-2.8a4 4 0 0 1 4.2-.9l2.4.9h2.7"/><path d="M21 5.7v8.7h-2M3 5h4l-.7.7M3 14.4h2l3.5 3.5a1.4 1.4 0 0 0 2-2"/></symbol>
   <symbol id="i-water" viewBox="0 0 24 24"><path d="M3 15c2 0 2-1.5 4.5-1.5S10 15 12 15s2-1.5 4.5-1.5S19 15 21 15M3 19.5c2 0 2-1.5 4.5-1.5S10 19.5 12 19.5s2-1.5 4.5-1.5 2.5 1.5 4.5 1.5"/><path d="M12 3s3.5 3.6 3.5 6a3.5 3.5 0 0 1-7 0C8.5 6.6 12 3 12 3Z"/></symbol>
 </svg>
@@ -1155,16 +1193,16 @@ html{scroll-padding-top:104px}
         </div>
       </div>
       <ol class="flow">
-        <li class="step reveal"><span class="n">01</span><h3>Informe a aplicação</h3><p>Mineração, drenagem, incêndio ou outra necessidade industrial.</p></li>
-        <li class="step reveal d1"><span class="n">02</span><h3>Envie os dados</h3><p>Vazão, altura, fluido, distância, período e condições da instalação.</p></li>
-        <li class="step reveal d2"><span class="n">03</span><h3>Análise técnica</h3><p>A equipe avalia a aplicação e define a configuração adequada.</p></li>
-        <li class="step reveal"><span class="n">04</span><h3>Proposta de locação</h3><p>Equipamentos, acessórios, período e serviços incluídos.</p></li>
-        <li class="step reveal d1"><span class="n">05</span><h3>Implantação</h3><p>Entrega e suporte à instalação conforme o escopo contratado.</p></li>
-        <li class="step reveal d2"><span class="n">06</span><h3>Operação e suporte</h3><p>Acompanhamento técnico durante o período contratado.</p></li>
+        <li class="step reveal"><span class="n">01</span><span class="s-ico" aria-hidden="true"><svg class="ico"><use href="#i-clip"/></svg></span><div class="s-tt"><h3>Informe a aplicação</h3><p>Mineração, drenagem, incêndio ou outra necessidade industrial.</p></div></li>
+        <li class="step reveal d1"><span class="n">02</span><span class="s-ico" aria-hidden="true"><svg class="ico"><use href="#i-db"/></svg></span><div class="s-tt"><h3>Envie os dados</h3><p>Vazão, altura, fluido, distância, período e condições da instalação.</p></div></li>
+        <li class="step reveal d2"><span class="n">03</span><span class="s-ico" aria-hidden="true"><svg class="ico"><use href="#i-gear"/></svg></span><div class="s-tt"><h3>Análise técnica</h3><p>A equipe avalia a aplicação e define a configuração adequada.</p></div></li>
+        <li class="step reveal"><span class="n">04</span><span class="s-ico" aria-hidden="true"><svg class="ico"><use href="#i-doc"/></svg></span><div class="s-tt"><h3>Proposta de locação</h3><p>Equipamentos, acessórios, período e serviços incluídos.</p></div></li>
+        <li class="step reveal d1"><span class="n">05</span><span class="s-ico" aria-hidden="true"><svg class="ico"><use href="#i-tools"/></svg></span><div class="s-tt"><h3>Implantação</h3><p>Entrega e suporte à instalação conforme o escopo contratado.</p></div></li>
+        <li class="step reveal d2"><span class="n">06</span><span class="s-ico" aria-hidden="true"><svg class="ico"><use href="#i-headset"/></svg></span><div class="s-tt"><h3>Operação e suporte</h3><p>Acompanhamento técnico durante o período contratado.</p></div></li>
       </ol>
       <div class="when reveal">
         <b>Quando optar pela locação</b>
-        <span>Necessidade temporária</span><span>Obra ou manutenção</span><span>Demanda adicional</span><span>Projeto piloto</span><span>Contingência</span><span>Sazonalidade</span>
+        <span><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>Necessidade temporária</span><span><svg class="ico" aria-hidden="true"><use href="#i-tools"/></svg>Obra ou manutenção</span><span><svg class="ico" aria-hidden="true"><use href="#i-layers"/></svg>Demanda adicional</span><span><svg class="ico" aria-hidden="true"><use href="#i-rocket"/></svg>Projeto piloto</span><span><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg>Contingência</span><span><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg>Sazonalidade</span>
       </div>
       <div class="cta-row"><a href="#orcamento" class="btn" data-cta="etapas" data-tipo="locacao">Solicitar orçamento de locação <svg class="ico"><use href="#i-arrow"/></svg></a></div>
     </div>
