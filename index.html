@@ -706,6 +706,60 @@ html{scroll-padding-top:104px}
   .shelf-nav a{padding:10px 14px;font-size:14px}
 }
 
+/* ===== Prateleiras das marcas: cabeçalho com arte e cartões de produto ===== */
+.shelf-txt .kick{display:inline-flex;align-items:center;gap:8px;font-size:13px}
+.shelf-txt .kick::before{content:"";width:7px;height:7px;border:2.5px solid currentColor;border-radius:50%}
+.shelf-txt .kick::after{content:"";width:clamp(40px,7vw,96px);height:2px;margin-left:10px;border-radius:2px;background:currentColor}
+.shelf.brand-shelf .shelf-head{grid-template-columns:clamp(150px,14vw,210px) minmax(0,1fr);min-height:clamp(220px,19vw,280px);padding:24px calc(40% + 28px) 24px 28px;border-radius:26px;border-color:#fff;box-shadow:0 26px 52px -34px rgba(10,43,87,.5)}
+.shelf.brand-shelf .shelf-head::before{width:7px}
+.shelf.brand-shelf .shelf-count{display:none}
+.shelf.brand-shelf .shelf-logo{height:clamp(96px,8.5vw,120px);border-radius:22px;background:#fff;border:0;box-shadow:0 14px 30px -18px rgba(10,43,87,.4)}
+.shelf.brand-shelf .shelf-logo .logo-slot{font-size:clamp(28px,2.8vw,42px);color:var(--navy-800)}
+.shelf.brand-shelf .shelf-txt h3{font-size:clamp(24px,2.5vw,36px);line-height:1.1;letter-spacing:-.03em;color:var(--navy-800)}
+.shelf.brand-shelf .shelf-txt p{font-size:clamp(15px,1.15vw,17px)}
+.shelf.brand-shelf .shelf-head::after{content:"";position:absolute;top:0;bottom:0;right:16px;width:40%;background:var(--red-600);clip-path:polygon(16% 0,100% 0,100% 100%,0 100%)}
+.shelf-art{position:absolute!important;top:0;bottom:0;right:0;z-index:1;width:40%;clip-path:polygon(16% 0,100% 0,100% 100%,0 100%);color:#fff;background:radial-gradient(circle at 70% 30%,rgba(77,150,235,.55),transparent 60%),linear-gradient(135deg,#0b3f8a,#061b38)!important}
+.shelf-art .ico{width:clamp(80px,9vw,130px);height:clamp(80px,9vw,130px);margin-left:16%;stroke-width:1;opacity:.35}
+.shelf-art.loaded{background-size:cover!important;background-position:center!important}
+.product{padding:0;overflow:hidden;border-radius:22px;border-color:#fff;box-shadow:0 22px 44px -30px rgba(10,43,87,.5)}
+.product .media{aspect-ratio:16/10;border-radius:0}
+.product-b{padding:20px clamp(18px,1.8vw,26px) 24px}
+.p-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.p-ico{display:grid;place-items:center;flex:none;width:50px;height:50px;border-radius:13px;background:var(--navy-800);color:#fff;box-shadow:0 10px 20px -12px rgba(6,27,56,.7)}
+.p-ico .ico{width:26px;height:26px;stroke-width:1.6}
+.product.rent .p-ico{background:var(--red-600)}
+.p-tt{padding-left:14px;border-left:2px solid var(--red-600)}
+.p-tt small{font-size:13px}
+.p-tt h4{margin:2px 0 0;font-size:clamp(18px,1.5vw,22px);line-height:1.15;letter-spacing:-.02em;color:var(--navy-800)}
+.product-b p{font-size:15px;color:#33445e}
+.product .q-btn{align-self:center;margin-top:auto;padding:12px 26px;border-radius:999px;background:var(--red-600);color:#fff;font-size:15px;box-shadow:0 14px 26px -14px rgba(225,6,47,.75);transition:background-color .2s,transform .25s var(--ease)}
+.product-b p+.q-btn,.product-b .note+.q-btn{margin-top:auto}
+.product-b>p:last-of-type{margin-bottom:18px}
+.product .q-btn:hover{background:var(--red-700);color:#fff;transform:translateY(-2px)}
+@media (max-width:900px){
+  .shelf.brand-shelf .shelf-head{grid-template-columns:110px minmax(0,1fr);min-height:0;padding:20px}
+  .shelf.brand-shelf .shelf-head::after{display:none}
+  .shelf-art{position:relative!important;grid-column:1/-1;grid-row:1;width:auto;height:170px;margin:-20px -20px 4px;clip-path:none}
+  .shelf-art .ico{margin-left:0}
+  .shelf.brand-shelf .shelf-logo{height:80px}
+}
+@media (max-width:640px){
+  .shelf.brand-shelf .shelf-head{grid-template-columns:84px minmax(0,1fr);padding:16px;border-radius:20px}
+  .shelf-art{height:130px;margin:-16px -16px 4px}
+  .shelf.brand-shelf .shelf-logo{height:64px;border-radius:14px}
+  .shelf.brand-shelf .shelf-logo .logo-slot{font-size:16px}
+  .shelf-txt .kick{font-size:11px}
+  .product{display:flex;flex-direction:column;padding:0;border-radius:18px}
+  .product .media{align-self:stretch;aspect-ratio:16/9}
+  .product .media:not(.loaded){display:none}
+  .product-b{padding:16px 16px 18px}
+  .p-ico{width:42px;height:42px;border-radius:11px}
+  .p-ico .ico{width:22px;height:22px}
+  .p-tt h4{font-size:17px}
+  .product-b p{font-size:14px}
+  .product .q-btn{align-self:stretch;justify-content:center;padding:12px 20px;font-size:14px}
+}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -850,6 +904,7 @@ html{scroll-padding-top:104px}
       <!-- PRATELEIRA 1: KRONOX -->
       <div class="shelf brand-shelf on" id="kronox" role="tabpanel">
         <div class="shelf-head reveal">
+          <div class="shelf-art media" data-img="assets/marcas/kronox-banner" aria-hidden="true"><svg class="ico"><use href="#i-inline"/></svg></div>
           <div class="shelf-logo"><span class="logo-slot" data-logo="assets/marcas/kronox"><span class="wm">KRONOX</span></span></div>
           <div class="shelf-txt">
             <span class="kick">Esgoto e efluentes</span>
@@ -867,32 +922,32 @@ html{scroll-padding-top:104px}
         <div class="products" style="--n:3">
           <article class="product reveal">
             <div class="media contain" data-img="assets/produtos/kronox-baby-booster"><svg class="ico" aria-hidden="true"><use href="#i-inline"/></svg></div>
-            <div class="product-b"><small>Kronox</small><h4>Baby Booster</h4><p>Versão compacta do Booster para projetos menores e baixas vazões.</p>
+            <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-inline"/></svg></span><div class="p-tt"><small>Kronox</small><h4>Baby Booster</h4></div></div><p>Versão compacta do Booster para projetos menores e baixas vazões.</p>
               <a class="q-btn" href="#orcamento" data-produto="Kronox — Baby Booster" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
           </article>
           <article class="product reveal d1">
             <div class="media contain" data-img="assets/produtos/kronox-booster-w"><svg class="ico" aria-hidden="true"><use href="#i-inline"/></svg></div>
-            <div class="product-b"><small>Kronox</small><h4>Booster de Esgoto Modelo W</h4><p>Configuração 2+1R para aplicações com grandes variações de vazão.</p>
+            <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-inline"/></svg></span><div class="p-tt"><small>Kronox</small><h4>Booster de Esgoto Modelo W</h4></div></div><p>Configuração 2+1R para aplicações com grandes variações de vazão.</p>
               <a class="q-btn" href="#orcamento" data-produto="Kronox — Booster de Esgoto Modelo W" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
           </article>
           <article class="product reveal d2">
             <div class="media contain" data-img="assets/produtos/kronox-booster-z"><svg class="ico" aria-hidden="true"><use href="#i-inline"/></svg></div>
-            <div class="product-b"><small>Kronox</small><h4>Booster de Esgoto Modelo Z</h4><p>Saídas de recalque individualizadas para facilitar a manutenção.</p>
+            <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-inline"/></svg></span><div class="p-tt"><small>Kronox</small><h4>Booster de Esgoto Modelo Z</h4></div></div><p>Saídas de recalque individualizadas para facilitar a manutenção.</p>
               <a class="q-btn" href="#orcamento" data-produto="Kronox — Booster de Esgoto Modelo Z" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
           </article>
           <article class="product reveal">
             <div class="media contain" data-img="assets/produtos/kronox-booster-x"><svg class="ico" aria-hidden="true"><use href="#i-inline"/></svg></div>
-            <div class="product-b"><small>Kronox</small><h4>Booster X</h4><p>Saída única e válvulas individualizadas, para condições menos agressivas.</p>
+            <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-inline"/></svg></span><div class="p-tt"><small>Kronox</small><h4>Booster X</h4></div></div><p>Saída única e válvulas individualizadas, para condições menos agressivas.</p>
               <a class="q-btn" href="#orcamento" data-produto="Kronox — Booster X" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
           </article>
           <article class="product reveal d1">
             <div class="media contain" data-img="assets/produtos/kronox-elevatoria-plug-e-play"><svg class="ico" aria-hidden="true"><use href="#i-box"/></svg></div>
-            <div class="product-b"><small>Kronox</small><h4>Elevatórias de Esgoto Plug e Play</h4><p>Estação elevatória de esgoto integrada, que reduz as etapas de implantação em campo.</p>
+            <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-box"/></svg></span><div class="p-tt"><small>Kronox</small><h4>Elevatórias de Esgoto Plug e Play</h4></div></div><p>Estação elevatória de esgoto integrada, que reduz as etapas de implantação em campo.</p>
               <a class="q-btn" href="#orcamento" data-produto="Kronox — Elevatória de Esgoto Plug e Play" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
           </article>
           <article class="product reveal d2">
             <div class="media contain" data-img="assets/produtos/kronox-elevatoria-4-0"><svg class="ico" aria-hidden="true"><use href="#i-iot"/></svg></div>
-            <div class="product-b"><small>Kronox</small><h4>Elevatória 4.0</h4><p>Booster com IoT e telemetria: monitoramento online, acesso remoto e alertas de falha.</p><p class="note">Desenvolvida em parceria com a WEG Digital Solutions.</p>
+            <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-iot"/></svg></span><div class="p-tt"><small>Kronox</small><h4>Elevatória 4.0</h4></div></div><p>Booster com IoT e telemetria: monitoramento online, acesso remoto e alertas de falha.</p><p class="note">Desenvolvida em parceria com a WEG Digital Solutions.</p>
               <a class="q-btn" href="#orcamento" data-produto="Kronox — Elevatória 4.0" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
           </article>
         </div>
@@ -901,6 +956,7 @@ html{scroll-padding-top:104px}
       <!-- PRATELEIRA 2: ARO -->
       <div class="shelf brand-shelf" id="aro" role="tabpanel">
         <div class="shelf-head reveal">
+          <div class="shelf-art media" data-img="assets/marcas/aro-banner" aria-hidden="true"><svg class="ico"><use href="#i-diaphragm"/></svg></div>
           <div class="shelf-logo"><span class="logo-slot" data-logo="assets/marcas/aro"><span class="wm">ARO<small>Ingersoll Rand</small></span></span></div>
           <div class="shelf-txt">
             <span class="kick">Transferência de fluidos</span>
@@ -917,12 +973,12 @@ html{scroll-padding-top:104px}
         <div class="products" style="--n:3">
           <article class="product reveal">
             <div class="media contain" data-img="assets/produtos/aro-diafragma-pneumatica"><svg class="ico" aria-hidden="true"><use href="#i-diaphragm"/></svg></div>
-            <div class="product-b"><small>ARO</small><h4>Bombas de Diafragma Pneumática</h4><p>Bomba pneumática de duplo diafragma, acionada por ar comprimido, para transferir fluidos industriais.</p>
+            <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-diaphragm"/></svg></span><div class="p-tt"><small>ARO</small><h4>Bombas de Diafragma Pneumática</h4></div></div><p>Bomba pneumática de duplo diafragma, acionada por ar comprimido, para transferir fluidos industriais.</p>
               <a class="q-btn" href="#orcamento" data-produto="ARO — Bomba de Diafragma Pneumática" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
           </article>
           <article class="product reveal d1">
             <div class="media contain" data-img="assets/produtos/aro-serie-evo"><svg class="ico" aria-hidden="true"><use href="#i-bolt"/></svg></div>
-            <div class="product-b"><small>ARO</small><h4>Bomba de Diafragma Série EVO</h4><p>Bomba de diafragma elétrica, alternativa para locais sem ar comprimido.</p>
+            <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-bolt"/></svg></span><div class="p-tt"><small>ARO</small><h4>Bomba de Diafragma Série EVO</h4></div></div><p>Bomba de diafragma elétrica, alternativa para locais sem ar comprimido.</p>
               <a class="q-btn" href="#orcamento" data-produto="ARO — Bomba de Diafragma Série EVO" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
           </article>
           <aside class="compare reveal d2" aria-labelledby="cmp-aro">
@@ -940,6 +996,7 @@ html{scroll-padding-top:104px}
       <!-- PRATELEIRA 3: HIGRA (único bloco onde "representante" pode aparecer) -->
       <div class="shelf brand-shelf" id="higra" role="tabpanel">
         <div class="shelf-head reveal">
+          <div class="shelf-art media" data-img="assets/marcas/higra-banner" aria-hidden="true"><svg class="ico"><use href="#i-pump"/></svg></div>
           <div class="shelf-logo"><span class="logo-slot" data-logo="assets/marcas/higra"><span class="wm">HIGRA</span></span></div>
           <div class="shelf-txt">
             <span class="kick">Captação, drenagem e ETE</span>
@@ -952,17 +1009,17 @@ html{scroll-padding-top:104px}
         <div class="products" style="--n:3">
           <article class="product reveal">
             <div class="media" data-img="assets/produtos/higra-bombas-anfibias"><svg class="ico" aria-hidden="true"><use href="#i-water"/></svg></div>
-            <div class="product-b"><small>Higra</small><h4>Bombas Anfíbias</h4><p>Opera submersa, parcialmente afogada ou fora d'água com o mesmo conjunto.</p>
+            <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-water"/></svg></span><div class="p-tt"><small>Higra</small><h4>Bombas Anfíbias</h4></div></div><p>Opera submersa, parcialmente afogada ou fora d'água com o mesmo conjunto.</p>
               <a class="q-btn" href="#orcamento" data-produto="Higra — Bomba Anfíbia" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
           </article>
           <article class="product reveal d1">
             <div class="media" data-img="assets/produtos/higra-bombas-submersas"><svg class="ico" aria-hidden="true"><use href="#i-drop"/></svg></div>
-            <div class="product-b"><small>Higra</small><h4>Bombas Submersas</h4><p>Bomba submersível para instalações em que o conjunto opera totalmente imerso no fluido.</p>
+            <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-drop"/></svg></span><div class="p-tt"><small>Higra</small><h4>Bombas Submersas</h4></div></div><p>Bomba submersível para instalações em que o conjunto opera totalmente imerso no fluido.</p>
               <a class="q-btn" href="#orcamento" data-produto="Higra — Bomba Submersa" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
           </article>
           <article class="product reveal d2">
             <div class="media" data-img="assets/produtos/higra-aeradores"><svg class="ico" aria-hidden="true"><use href="#i-bubbles"/></svg></div>
-            <div class="product-b"><small>Higra</small><h4>Aeradores</h4><p>Aerador industrial para transferência de oxigênio e mistura em ETE, tanques e lagoas.</p>
+            <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-bubbles"/></svg></span><div class="p-tt"><small>Higra</small><h4>Aeradores</h4></div></div><p>Aerador industrial para transferência de oxigênio e mistura em ETE, tanques e lagoas.</p>
               <a class="q-btn" href="#orcamento" data-produto="Higra — Aerador" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
           </article>
         </div>
@@ -988,22 +1045,22 @@ html{scroll-padding-top:104px}
         <div class="products" style="--n:4">
           <article class="product rent reveal">
             <div class="media" data-img="assets/locacao/bombas-para-mineracao"><svg class="ico" aria-hidden="true"><use href="#i-mine"/></svg></div>
-            <div class="product-b"><small>Locação</small><h4>Bombas para Mineração</h4><p>Drenagem, transferência de água e reforço de capacidade na mineração.</p>
+            <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-mine"/></svg></span><div class="p-tt"><small>Locação</small><h4>Bombas para Mineração</h4></div></div><p>Drenagem, transferência de água e reforço de capacidade na mineração.</p>
               <a class="q-btn" href="#orcamento" data-produto="Locação — Bombas para Mineração" data-tipo="locacao" data-cta="vitrine-locacao">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
           </article>
           <article class="product rent reveal d1">
             <div class="media" data-img="assets/locacao/bombas-de-drenagem"><svg class="ico" aria-hidden="true"><use href="#i-wave"/></svg></div>
-            <div class="product-b"><small>Locação</small><h4>Bombas de Drenagem</h4><p>Retirada de água em operações industriais, obras e áreas alagadas.</p>
+            <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-wave"/></svg></span><div class="p-tt"><small>Locação</small><h4>Bombas de Drenagem</h4></div></div><p>Retirada de água em operações industriais, obras e áreas alagadas.</p>
               <a class="q-btn" href="#orcamento" data-produto="Locação — Bombas de Drenagem" data-tipo="locacao" data-cta="vitrine-locacao">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
           </article>
           <article class="product rent reveal d2">
             <div class="media" data-img="assets/locacao/bombas-de-incendio"><svg class="ico" aria-hidden="true"><use href="#i-flame"/></svg></div>
-            <div class="product-b"><small>Locação</small><h4>Bombas de Incêndio</h4><p>Bombeamento temporário para sistemas industriais de combate a incêndio.</p>
+            <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-flame"/></svg></span><div class="p-tt"><small>Locação</small><h4>Bombas de Incêndio</h4></div></div><p>Bombeamento temporário para sistemas industriais de combate a incêndio.</p>
               <a class="q-btn" href="#orcamento" data-produto="Locação — Bombas de Incêndio" data-tipo="locacao" data-cta="vitrine-locacao">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
           </article>
           <article class="product rent reveal d3">
             <div class="media" data-img="assets/locacao/sistemas-de-bombeamento"><svg class="ico" aria-hidden="true"><use href="#i-system"/></svg></div>
-            <div class="product-b"><small>Locação</small><h4>Sistemas de Bombeamento</h4><p>Bomba, tubulação e acessórios dimensionados para o período do projeto.</p>
+            <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-system"/></svg></span><div class="p-tt"><small>Locação</small><h4>Sistemas de Bombeamento</h4></div></div><p>Bomba, tubulação e acessórios dimensionados para o período do projeto.</p>
               <a class="q-btn" href="#orcamento" data-produto="Locação — Sistema de Bombeamento" data-tipo="locacao" data-cta="vitrine-locacao">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
           </article>
         </div>
