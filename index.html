@@ -772,6 +772,32 @@ html{scroll-padding-top:104px}
 #kronox .product .media{aspect-ratio:16/10}
 #kronox .product .media.contain.loaded{padding:0;background-size:cover;background-position:center}
 
+/* ===== ARO: banner, foto do produto, comparativo e outras linhas ===== */
+#aro .shelf-art.loaded{background-position:40% center}
+#aro .shelf-logo .wm{color:var(--red-600)}
+#aro .product .media.contain.loaded{padding:0;background-size:cover;background-position:center}
+.compare{position:relative;overflow:hidden;padding:clamp(22px,2vw,30px) clamp(18px,1.8vw,26px);border-radius:22px;background:linear-gradient(160deg,#0b3f8a 0%,#082b5e 55%,#061f45 100%);box-shadow:0 22px 44px -30px rgba(10,43,87,.6)}
+.compare::after{content:"";position:absolute;top:0;right:0;width:110px;height:70px;background:var(--red-600);clip-path:polygon(30% 0,100% 0,100% 100%);pointer-events:none}
+.compare h4{position:relative;z-index:1;max-width:88%;font-size:clamp(19px,1.6vw,23px);line-height:1.2;letter-spacing:-.02em}
+.compare .cols{gap:14px;margin-top:20px}
+.compare .col{padding:16px 14px;border-radius:14px;background:rgba(255,255,255,.07);border-color:rgba(140,180,240,.28)}
+.compare .col b{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-size:15px;white-space:nowrap}
+.compare .col b .ico{width:24px;height:24px;flex:none;stroke-width:1.7;color:#fff}
+.compare .col li{padding-left:18px;font-size:14.5px;color:#dbe7f7}
+.compare .col li+li{margin-top:10px}
+.compare .col li::before{top:.55em;width:7px;height:7px}
+.compare .tip{display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:18px;border-top:1px solid rgba(255,255,255,.18);font-size:14.5px;line-height:1.45;color:#e3ecf8}
+.compare .cols+.tip{margin-top:22px}
+.compare .tip .ico{width:30px;height:30px;flex:none;stroke-width:1.5;color:#fff}
+.more{gap:10px;margin-top:18px;padding:12px 24px;border-radius:999px;background:#fff;border:1px solid #fff;box-shadow:0 16px 34px -24px rgba(10,43,87,.45);font-size:15px}
+.more b{margin-right:8px;color:var(--navy-800)}
+.more span{padding:6px 16px;border-color:#d3deec;font-size:14.5px;color:var(--navy-800)}
+@media (max-width:640px){
+  .compare .col li,.compare .tip{font-size:13.5px}
+  .more{border-radius:20px;padding:12px 14px;font-size:13.5px}
+  .more span{padding:4px 12px;font-size:13px}
+}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -996,10 +1022,10 @@ html{scroll-padding-top:104px}
           <aside class="compare reveal d2" aria-labelledby="cmp-aro">
             <h4 id="cmp-aro">Bomba pneumática ou bomba de diafragma elétrica?</h4>
             <div class="cols">
-              <div class="col"><b>Pneumática</b><ul><li>Acionada por ar comprimido</li><li>Transferência de fluidos em geral</li></ul></div>
-              <div class="col"><b>Elétrica (EVO)</b><ul><li>Acionada por motor elétrico</li><li>Batelada, dosagem e locais sem ar comprimido</li></ul></div>
+              <div class="col"><b><svg class="ico" aria-hidden="true"><use href="#i-air"/></svg>Pneumática</b><ul><li>Acionada por ar comprimido</li><li>Transferência de fluidos em geral</li></ul></div>
+              <div class="col"><b><svg class="ico" aria-hidden="true"><use href="#i-bolt"/></svg>Elétrica (EVO)</b><ul><li>Acionada por motor elétrico</li><li>Batelada, dosagem e locais sem ar comprimido</li></ul></div>
             </div>
-            <p class="tip">A escolha depende do processo. A equipe técnica avalia vazão, pressão e fluido antes de indicar.</p>
+            <p class="tip"><svg class="ico" aria-hidden="true"><use href="#i-gear"/></svg><span>A escolha depende do processo. A equipe técnica avalia vazão, pressão e fluido antes de indicar.</span></p>
           </aside>
         </div>
         <p class="more reveal"><b>Outras linhas ARO sob consulta:</b><span>EXP</span><span>PRO</span><span>Compact</span><span>Sanitárias</span><span>EVO 200</span><span>EVO 300</span></p>
@@ -1424,7 +1450,7 @@ var CONFIG = {
   privacyUrl: "#",
   campanha: "Bombas Industriais",
   // Versão das imagens: aumente ao adicionar ou trocar fotos em assets/ (força o navegador a buscar de novo)
-  assetVersion: "4"
+  assetVersion: "5"
 };
 
 /* GTM */
