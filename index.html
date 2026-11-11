@@ -148,7 +148,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .hero-card.has-img{background:#eaf3fd var(--hero-img) center bottom/cover no-repeat}
 /* banner de ponta a ponta: sem margem lateral, sem cantos arredondados */
 .hero:has(.hero-card.has-img){padding:0}
-.hero-card.has-img{max-width:none;border-radius:0;box-shadow:none;min-height:max(clamp(620px,46vw,720px),33vw)}
+.hero-card.has-img{max-width:none;border-radius:0 0 var(--round) var(--round);box-shadow:none;min-height:max(clamp(620px,46vw,720px),33vw)}
 @media (min-width:2000px){
   .hero .hero-card.has-img .hero-inner{max-width:none;width:calc(100% - 22vw)}
 }
