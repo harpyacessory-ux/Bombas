@@ -637,8 +637,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 .hero:not(:has(.has-img)){padding-top:0}
 .shelf-nav{position:static}
 /* abas da vitrine: só a marca escolhida aparece; a locação fica sempre visível */
-.js .shelf.brand:not(.on){display:none}
-.js .shelf.brand.on{animation:shelfIn .35s ease both}
+.js .shelf.brand-shelf:not(.on){display:none}
+.js .shelf.brand-shelf.on{animation:shelfIn .35s ease both}
 @keyframes shelfIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .shelf{scroll-margin-top:176px}
 html{scroll-padding-top:104px}
@@ -794,7 +794,7 @@ html{scroll-padding-top:104px}
       </nav>
 
       <!-- PRATELEIRA 1: KRONOX -->
-      <div class="shelf brand on" id="kronox" role="tabpanel">
+      <div class="shelf brand-shelf on" id="kronox" role="tabpanel">
         <div class="shelf-head reveal">
           <div class="shelf-logo"><span class="logo-slot" data-logo="assets/marcas/kronox"><span class="wm">KRONOX</span></span></div>
           <div class="shelf-txt">
@@ -845,7 +845,7 @@ html{scroll-padding-top:104px}
       </div>
 
       <!-- PRATELEIRA 2: ARO -->
-      <div class="shelf brand" id="aro" role="tabpanel">
+      <div class="shelf brand-shelf" id="aro" role="tabpanel">
         <div class="shelf-head reveal">
           <div class="shelf-logo"><span class="logo-slot" data-logo="assets/marcas/aro"><span class="wm">ARO<small>Ingersoll Rand</small></span></span></div>
           <div class="shelf-txt">
@@ -884,7 +884,7 @@ html{scroll-padding-top:104px}
       </div>
 
       <!-- PRATELEIRA 3: HIGRA (único bloco onde "representante" pode aparecer) -->
-      <div class="shelf brand" id="higra" role="tabpanel">
+      <div class="shelf brand-shelf" id="higra" role="tabpanel">
         <div class="shelf-head reveal">
           <div class="shelf-logo"><span class="logo-slot" data-logo="assets/marcas/higra"><span class="wm">HIGRA</span></span></div>
           <div class="shelf-txt">
