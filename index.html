@@ -619,6 +619,39 @@ ul,ol{margin:0;padding:0;list-style:none}
   .mobile-cta.show{transform:none}
   .mobile-cta .btn{width:100%}
 }
+/* ---------- Topo: barra flutuante arredondada com efeito de vidro, sobre o banner ---------- */
+.site-header{position:fixed;top:14px;left:max(12px,1vw);right:max(12px,1vw);z-index:50;border-radius:999px;background:linear-gradient(115deg,rgba(255,255,255,.8) 0%,rgba(255,255,255,.66) 55%,rgba(236,244,255,.72) 100%);-webkit-backdrop-filter:blur(18px) saturate(170%);backdrop-filter:blur(18px) saturate(170%);border:1px solid rgba(255,255,255,.85);box-shadow:0 14px 34px -14px rgba(10,43,87,.38),0 2px 6px -2px rgba(10,43,87,.12),inset 0 1px 0 rgba(255,255,255,.95),inset 0 -1px 0 rgba(36,104,204,.12)}
+.site-header::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.5) 0%,rgba(255,255,255,0) 50%)}
+.site-header.scrolled{border-color:rgba(255,255,255,.85);background:linear-gradient(115deg,rgba(255,255,255,.88) 0%,rgba(255,255,255,.74) 55%,rgba(236,244,255,.7) 100%);box-shadow:0 18px 40px -16px rgba(10,43,87,.42),0 2px 6px -2px rgba(10,43,87,.12),inset 0 1px 0 rgba(255,255,255,.95)}
+.site-header .nav{position:relative;width:auto;max-width:none;height:78px;padding-inline:clamp(20px,3.6vw,56px) 14px}
+.site-header .brand{width:164px}
+.site-header .nav-links{gap:clamp(18px,3vw,44px)}
+.site-header .nav-links a:not(.btn){font-size:16px;color:var(--navy-800)}
+.site-header .nav-links a:not(.btn)::after{background:transparent}
+.site-header .nav-links a:not(.btn):hover::after{background:rgba(225,6,47,.35)}
+.site-header .nav-links a.active:not(.btn)::after{background:var(--red-600)}
+.site-header .nav-links .btn{min-height:50px;padding:0 26px;border-radius:999px;font-size:16px;margin-left:clamp(8px,2vw,32px)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.site-header{background:rgba(255,255,255,.95)}}
+/* o banner sobe até o topo da tela; o conteúdo desce para não ficar sob a barra */
+.hero .hero-inner{padding-top:136px}
+.hero:not(:has(.has-img)){padding-top:0}
+.shelf-nav{top:104px}
+.shelf{scroll-margin-top:176px}
+html{scroll-padding-top:104px}
+@media (max-width:900px){
+  .hero .hero-inner{padding-top:120px}
+}
+@media (max-width:640px){
+  .site-header{top:8px;left:8px;right:8px;border-radius:20px}
+  .site-header .nav{height:62px;padding-inline:14px 8px}
+  .site-header .brand{width:112px}
+  .site-header .nav-links .btn{min-height:42px;padding:0 16px;font-size:13px}
+  .hero .hero-inner{padding-top:96px}
+  .shelf-nav{top:80px}
+  .shelf{scroll-margin-top:146px}
+  html{scroll-padding-top:80px}
+}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
