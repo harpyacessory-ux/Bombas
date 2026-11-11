@@ -208,6 +208,9 @@ ul,ol{margin:0;padding:0;list-style:none}
 .chat-f input:focus{outline:2px solid var(--blue-500);border-color:transparent}
 .chat-f button{padding:0 18px;border:0;border-radius:10px;background:var(--red-600);color:#fff;font-size:14px;font-weight:700;transition:background-color .2s}
 .chat-f button:hover{background:var(--red-700)}
+/* espaço reservado para o plugin no hero (vazio até o shortcode entrar) */
+.hero-slot{min-height:520px}
+.hero-slot:empty{min-height:520px}
 .chat-done{padding:16px;text-align:center;background:#eaf6ee;color:var(--green-600);font-size:14px;font-weight:600;border-top:1px solid #cfe8d8}
 
 /* ---------- Mídia com placeholder (a foto entra sozinha quando existir em assets/) ---------- */
@@ -521,7 +524,9 @@ ul,ol{margin:0;padding:0;list-style:none}
   .nav-links a:not(.btn){display:none}
   .hero-card{min-height:0;background:linear-gradient(180deg,#fff 0,#fff calc(100% - 320px),#0a3478 calc(100% - 320px),#0b3f8a 100%)}
   .hero-panel,.hero-stripe,.hero-lines{display:none}
-  .hero-card.has-img{background:linear-gradient(180deg,#f4f9ff 0,#e4effc calc(100% - 300px),#0a3478 calc(100% - 300px),#0b3f8a 100%)}
+  .hero-card.has-img{background:linear-gradient(180deg,#f4f9ff 0,#e4effc 100%)}
+  .hero-slot,.hero-slot:empty{min-height:0}
+  .hero-slot:empty{display:none}
   .hero-card.has-img .hero-inner{width:auto;grid-template-columns:1fr;gap:28px}
   .hero-card.has-img .hero-copy{max-width:640px}
   .hero-card.has-img .hero-mob{display:block;width:100%;max-width:640px;aspect-ratio:16/11;background:#0a3478 var(--hero-img) 63% 100%/230% auto no-repeat;border-radius:18px;box-shadow:0 24px 44px -26px rgba(6,27,56,.6)}
@@ -700,18 +705,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 
         <div class="hero-mob" role="img" aria-label="Bombas industriais ARO, Higra e Vazão"></div>
 
-        <div class="chat reveal d2" id="chat" role="region" aria-label="Atendimento Vazão Engenharia">
-          <div class="chat-h">
-            <div class="av" aria-hidden="true">V</div>
-            <p>Especialista em bombas Vazão<span>Orçamento para o seu projeto</span></p>
-            <div class="on"><i></i>Online</div>
-          </div>
-          <div class="chat-b" id="chat-b" aria-live="polite"></div>
-          <form class="chat-f" id="chat-f" autocomplete="on">
-            <input id="chat-in" type="text" placeholder="Digite sua resposta..." aria-label="Sua resposta">
-            <button type="submit" id="chat-send">Enviar</button>
-          </form>
-        </div>
+        <!-- PLUGIN DO HERO: colar aqui o shortcode do plugin (chat/formulário). Espaço reservado de 520 px no desktop. -->
+        <div class="hero-slot" id="hero-plugin"></div>
       </div>
     </div>
   </section>
@@ -1442,54 +1437,6 @@ form.addEventListener('submit', function(e){
   var btn = form.querySelector('button[type=submit]'); btn.disabled = true;
   sendLead(lead, 'formulario').then(function(){ document.getElementById('form-box').classList.add('sent'); });
 });
-
-/* Chat */
-(function(){
-  var body = document.getElementById('chat-b'), f = document.getElementById('chat-f'), input = document.getElementById('chat-in');
-  var lead = {}, step = 0;
-  var steps = [
-    {key:'nome', ask:'Olá! Sou da equipe técnica da Vazão. Para começar, qual é o seu nome?'},
-    {key:'empresa', ask:function(){ return 'Prazer, ' + lead.nome.split(' ')[0] + '! Qual é o nome da sua empresa?'; }},
-    {key:'tipo', ask:'Você quer comprar um equipamento ou alugar uma bomba?', opts:['Comprar equipamento','Alugar bomba'], map:function(v){ return /alugar/i.test(v) ? 'Locação' : 'Compra'; }},
-    {key:'linha', ask:'Qual linha de bombas interessa?', opts:['Kronox (esgoto)','ARO (diafragma)','Higra (anfíbia / aerador)','Ainda não sei'], when:function(){ return lead.tipo === 'Compra'; }},
-    {key:'aplicacao', ask:'Para qual aplicação é a locação?', opts:['Mineração','Drenagem','Incêndio','Sistema completo','Outra'], when:function(){ return lead.tipo === 'Locação'; }},
-    {key:'cidade', ask:'Em qual cidade fica o projeto?', ph:'Ex.: Recife - PE'},
-    {key:'telefone', ask:'Qual o seu telefone ou WhatsApp com DDD?', ph:'(81) 99999-9999', type:'tel', test:PHONE_RE, bad:'Número inválido. Use o formato (81) 99999-9999.'},
-    {key:'email', ask:'Por fim, qual o seu melhor e-mail?', type:'email', test:MAIL_RE, bad:'E-mail inválido. Confira e tente de novo.'}
-  ];
-  function say(text, who){ var m = document.createElement('div'); m.className = 'msg ' + (who||'bot'); m.textContent = text; body.appendChild(m); body.scrollTop = body.scrollHeight; }
-  function ask(){
-    while (step < steps.length && steps[step].when && !steps[step].when()) step++;
-    var s = steps[step];
-    say(typeof s.ask === 'function' ? s.ask() : s.ask);
-    input.type = s.type || 'text'; input.placeholder = s.ph || 'Digite sua resposta...';
-    if(s.opts){
-      var box = document.createElement('div'); box.className = 'opts';
-      s.opts.forEach(function(o){ var b = document.createElement('button'); b.type = 'button'; b.textContent = o; b.onclick = function(){ box.remove(); answer(o); }; box.appendChild(b); });
-      body.appendChild(box); body.scrollTop = body.scrollHeight;
-    }
-  }
-  function next(){
-    step++;
-    while (step < steps.length && steps[step].when && !steps[step].when()) step++;
-    return step < steps.length;
-  }
-  function answer(v){
-    var s = steps[step]; v = v.trim(); if(!v) return;
-    if(s.test && !s.test.test(v)){ say(v,'me'); say(s.bad); return; }
-    var o = body.querySelector('.opts'); if(o) o.remove();
-    say(v,'me'); lead[s.key] = s.map ? s.map(v) : v; input.value = '';
-    if(step === 0) dataLayer.push({event:'chat_start'});
-    if(next()){ setTimeout(ask, 350); return; }
-    setTimeout(function(){
-      say('Perfeito! Um especialista da Vazão vai entrar em contato em breve. Obrigado!');
-      f.outerHTML = '<div class="chat-done">✓ Solicitação enviada com sucesso!</div>';
-      sendLead(lead, 'chat');
-    }, 350);
-  }
-  f.addEventListener('submit', function(e){ e.preventDefault(); answer(input.value); });
-  ask();
-})();
 </script>
 </body>
 </html>

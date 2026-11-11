@@ -11,7 +11,7 @@ Palavra-chave principal: **bombas industriais** (no H1 e no título da aba). Cad
 ### Blocos
 
 1. Topo com menu e botão "Solicitar orçamento"
-2. Hero: H1 "Bombas industriais Kronox, ARO e Higra", chat de atendimento, pontos Engenharia · PE e CE · Desde 1991
+2. Hero: H1 "Bombas industriais Kronox, ARO e Higra", espaço reservado para o plugin (`#hero-plugin`), pontos Engenharia · PE e CE · Desde 1991
 3. Marcas (Kronox, ARO, Higra, Locação) + selos: Atendimento PE e CE · Engenharia especializada · Equipe técnica
 4. Vitrine com 4 prateleiras e 15 itens: Kronox (6), ARO (2 + comparativo pneumática × elétrica), Higra (3), Locação (4)
 5. Como funciona a locação (6 etapas, sem prazos) + quando optar pela locação
@@ -51,7 +51,7 @@ Palavra-chave principal: **bombas industriais** (no H1 e no título da aba). Cad
 
 **Aplicações** (1200×900, equipamento operando) em `assets/aplicacoes/`: `captacao-de-agua-bruta`, `estacao-elevatoria-de-esgoto`, `drenagem-industrial`, `tratamento-de-efluentes-ete`, `mineracao`.
 
-**Banner do hero**: `assets/banner-topo.jpg` (incluído). É a arte enviada pelo usuário com as bombas reduzidas e o fundo estendido para cima e para a direita, para o chat ficar sobre a parte escura sem cobrir as bombas. No celular, a arte aparece como um recorte das bombas entre o texto e o chat.
+**Banner do hero**: `assets/banner-topo.jpg` (incluído). É a arte enviada pelo usuário com as bombas reduzidas e o fundo estendido para cima e para a direita, para o plugin ficar sobre a parte escura sem cobrir as bombas. No celular, a arte aparece como um recorte das bombas abaixo do texto.
 
 ## Configuração (bloco `CONFIG` no fim do `index.html`)
 
@@ -60,7 +60,7 @@ Palavra-chave principal: **bombas industriais** (no H1 e no título da aba). Cad
 - `privacyUrl`: link da política de privacidade.
 
 O lead leva campanha, grupo (do parâmetro `adgroup` da URL; se não houver, deduzido do produto escolhido), palavra-chave (`keyword`/`utm_term`), anúncio (`creative`/`utm_content`), UTMs e `gclid`, guardados por 90 dias.
-Eventos no `dataLayer`: `cta_click` (com o produto clicado), `chat_start`, `generate_lead`.
+Eventos no `dataLayer`: `cta_click` (com o produto clicado), `generate_lead`.
 Os botões "Solicitar orçamento" da vitrine já preenchem o produto e marcam Compra ou Locação no formulário.
 
 ## Regras de conteúdo aplicadas
@@ -74,6 +74,7 @@ Os botões "Solicitar orçamento" da vitrine já preenchem o produto e marcam Co
 ## Pendências
 
 - [ ] Imagens e logos listados acima
+- [ ] **Plugin do hero**: colar o shortcode em `<div class="hero-slot" id="hero-plugin">` (comentário `PLUGIN DO HERO`). O espaço tem 520 px de altura no desktop; no celular ele só aparece quando tiver conteúdo
 - [ ] URL final da LP (hoje `https://vazao.b2marketingindustrial.com.br/bombas-industriais/` no canonical, robots e sitemap)
 - [ ] Link da política de privacidade e `leadEndpoint`/GTM
 - [ ] Endereço: o briefing traz "Brasilit"; a LP NR13 usa "Várzea" para o mesmo CEP. Confirmar com o cliente
