@@ -869,6 +869,42 @@ html{scroll-padding-top:104px}
   .flow-sec .cta-row .btn{width:100%;justify-content:center;padding:16px 20px}
 }
 
+/* ===== Aplicações: fotos nos cartões, ícone com traço vermelho, faixa da mineração ===== */
+.apps .section-head h2{font-size:clamp(34px,4.3vw,62px);line-height:1.04;letter-spacing:-.035em;color:var(--navy-800)}
+.apps .section-head h2 em{color:var(--red-600)}
+.apps .section-head p{font-size:clamp(16px,1.3vw,19px);color:#33445e}
+.apps .section-head .eyebrow{font-size:13px}
+.app{position:relative;overflow:hidden;padding:0;border:1px solid #fff;border-radius:22px;box-shadow:0 24px 46px -30px rgba(10,43,87,.5)}
+.app::after{content:"";position:absolute;right:0;bottom:0;width:90px;height:40px;background:var(--red-600);clip-path:polygon(100% 0,100% 100%,0 100%);border-radius:0 0 22px 0;pointer-events:none}
+.app .media{aspect-ratio:5/2;border-radius:0}
+.app .media.loaded{background-size:cover;background-position:center}
+.app .media.loaded::after{content:"";position:absolute;right:0;bottom:0;width:70px;height:30px;background:var(--red-600);clip-path:polygon(100% 0,100% 100%,0 100%)}
+.app-b{padding:16px clamp(16px,1.6vw,22px) 26px}
+.app .tags{justify-content:center;margin-bottom:10px}
+.a-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.a-ico{width:40px;height:40px;flex:none;stroke-width:1.5;color:var(--navy-800)}
+.a-head h3{margin:0;padding-left:14px;border-left:2px solid var(--red-600);font-size:clamp(18px,1.45vw,21px);line-height:1.15;letter-spacing:-.02em;color:var(--navy-800)}
+.app p{font-size:15px;color:#33445e}
+.app-links{padding-top:14px;padding-right:70px}
+.app-wide{position:relative;overflow:hidden;grid-template-columns:minmax(0,320px) minmax(0,1fr) auto;margin-top:22px;padding:14px clamp(20px,2.6vw,36px) 14px 14px;border-radius:24px;background:linear-gradient(110deg,#061f45 0%,#0a3478 60%,#0b3f8a 100%);box-shadow:0 26px 52px -30px rgba(6,27,56,.7)}
+.app-wide::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:var(--red-600)}
+.app-wide::after{content:"";position:absolute;right:0;bottom:0;width:140px;height:56px;background:var(--red-600);clip-path:polygon(100% 0,100% 100%,0 100%);pointer-events:none}
+.app-wide>div:not(.media){padding-left:clamp(18px,2.4vw,34px);border-left:1px solid rgba(255,255,255,.22)}
+.app-wide .media{border-radius:16px}
+.app-wide .media.loaded{background-position:center 55%}
+.app-wide h3{font-size:clamp(22px,2.2vw,32px);line-height:1.15;letter-spacing:-.025em}
+.app-wide p{font-size:clamp(15px,1.2vw,17px);color:#dbe7f7}
+.app-wide .btn{position:relative;z-index:1;border-radius:999px;padding:15px 28px}
+@media (max-width:900px){
+  .app-wide{grid-template-columns:1fr;padding:12px 12px 70px}
+  .app-wide>div:not(.media){padding:0 8px;border-left:0}
+  .app-wide .btn{justify-content:center}
+}
+@media (max-width:640px){
+  .app .media{aspect-ratio:16/7}
+  .a-ico{width:34px;height:34px}
+}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -1220,22 +1256,22 @@ html{scroll-padding-top:104px}
       <div class="app-grid">
         <article class="app reveal">
           <div class="media" data-img="assets/aplicacoes/captacao-de-agua-bruta"><svg class="ico" aria-hidden="true"><use href="#i-water"/></svg></div>
-          <div class="app-b"><div class="tags"><span class="tag">Venda</span></div><h3>Captação de água bruta</h3><p>Bombas para captação de água em rios, reservatórios, sistemas de abastecimento e ETA, e para recalque de água.</p>
+          <div class="app-b"><div class="tags"><span class="tag">Venda</span></div><div class="a-head"><svg class="ico a-ico" aria-hidden="true"><use href="#i-water"/></svg><h3>Captação de água bruta</h3></div><p>Bombas para captação de água em rios, reservatórios, sistemas de abastecimento e ETA, e para recalque de água.</p>
             <div class="app-links"><a href="#higra">Bombas Higra <svg class="ico"><use href="#i-arrow"/></svg></a></div></div>
         </article>
         <article class="app reveal d1">
           <div class="media" data-img="assets/aplicacoes/estacao-elevatoria-de-esgoto"><svg class="ico" aria-hidden="true"><use href="#i-pipe"/></svg></div>
-          <div class="app-b"><div class="tags"><span class="tag">Venda</span></div><h3>Estação elevatória de esgoto</h3><p>Booster em linha e elevatórias Plug e Play para esgoto e efluentes, com telemetria opcional.</p>
+          <div class="app-b"><div class="tags"><span class="tag">Venda</span></div><div class="a-head"><svg class="ico a-ico" aria-hidden="true"><use href="#i-pipe"/></svg><h3>Estação elevatória de esgoto</h3></div><p>Booster em linha e elevatórias Plug e Play para esgoto e efluentes, com telemetria opcional.</p>
             <div class="app-links"><a href="#kronox">Bombas Kronox <svg class="ico"><use href="#i-arrow"/></svg></a></div></div>
         </article>
         <article class="app reveal d2">
           <div class="media" data-img="assets/aplicacoes/drenagem-industrial"><svg class="ico" aria-hidden="true"><use href="#i-wave"/></svg></div>
-          <div class="app-b"><div class="tags"><span class="tag">Venda</span><span class="tag rent">Locação</span></div><h3>Drenagem industrial</h3><p>Retirada de grandes volumes de água em indústria, obras e áreas alagadas. Para comprar ou para alugar.</p>
+          <div class="app-b"><div class="tags"><span class="tag">Venda</span><span class="tag rent">Locação</span></div><div class="a-head"><svg class="ico a-ico" aria-hidden="true"><use href="#i-wave"/></svg><h3>Drenagem industrial</h3></div><p>Retirada de grandes volumes de água em indústria, obras e áreas alagadas. Para comprar ou para alugar.</p>
             <div class="app-links"><a href="#higra">Comprar <svg class="ico"><use href="#i-arrow"/></svg></a><a href="#locacao">Alugar <svg class="ico"><use href="#i-arrow"/></svg></a></div></div>
         </article>
         <article class="app reveal d3">
           <div class="media" data-img="assets/aplicacoes/tratamento-de-efluentes-ete"><svg class="ico" aria-hidden="true"><use href="#i-bubbles"/></svg></div>
-          <div class="app-b"><div class="tags"><span class="tag">Venda</span></div><h3>Tratamento de efluentes (ETE)</h3><p>Aeradores e bombas para oxigenação e mistura em tanques e lagoas.</p>
+          <div class="app-b"><div class="tags"><span class="tag">Venda</span></div><div class="a-head"><svg class="ico a-ico" aria-hidden="true"><use href="#i-bubbles"/></svg><h3>Tratamento de efluentes (ETE)</h3></div><p>Aeradores e bombas para oxigenação e mistura em tanques e lagoas.</p>
             <div class="app-links"><a href="#higra">Aeradores Higra <svg class="ico"><use href="#i-arrow"/></svg></a></div></div>
         </article>
       </div>
