@@ -635,7 +635,11 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* o banner sobe até o topo da tela; o conteúdo desce para não ficar sob a barra */
 .hero .hero-inner{padding-top:136px}
 .hero:not(:has(.has-img)){padding-top:0}
-.shelf-nav{top:104px}
+.shelf-nav{position:static}
+/* abas da vitrine: só a marca escolhida aparece; a locação fica sempre visível */
+.js .shelf.brand:not(.on){display:none}
+.js .shelf.brand.on{animation:shelfIn .35s ease both}
+@keyframes shelfIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .shelf{scroll-margin-top:176px}
 html{scroll-padding-top:104px}
 @media (max-width:900px){
@@ -647,7 +651,6 @@ html{scroll-padding-top:104px}
   .site-header .brand{width:112px}
   .site-header .nav-links .btn{min-height:42px;padding:0 16px;font-size:13px}
   .hero .hero-inner{padding-top:96px}
-  .shelf-nav{top:80px}
   .shelf{scroll-margin-top:146px}
   html{scroll-padding-top:80px}
 }
@@ -784,15 +787,14 @@ html{scroll-padding-top:104px}
         <p>Esgoto, captação, drenagem, ETE e transferência de fluidos industriais. Se ainda não sabe qual equipamento usar, a equipe técnica da Vazão indica a configuração.</p>
       </div>
 
-      <nav class="shelf-nav reveal" aria-label="Prateleiras de produtos">
-        <a href="#kronox">Kronox</a>
-        <a href="#aro">ARO</a>
-        <a href="#higra">Higra</a>
-        <a class="rent" href="#locacao">Locação</a>
+      <nav class="shelf-nav reveal" aria-label="Marcas de bombas" role="tablist">
+        <a href="#kronox" role="tab" aria-controls="kronox" aria-selected="true" class="active">Kronox</a>
+        <a href="#aro" role="tab" aria-controls="aro" aria-selected="false">ARO</a>
+        <a href="#higra" role="tab" aria-controls="higra" aria-selected="false">Higra</a>
       </nav>
 
       <!-- PRATELEIRA 1: KRONOX -->
-      <div class="shelf" id="kronox">
+      <div class="shelf brand on" id="kronox" role="tabpanel">
         <div class="shelf-head reveal">
           <div class="shelf-logo"><span class="logo-slot" data-logo="assets/marcas/kronox"><span class="wm">KRONOX</span></span></div>
           <div class="shelf-txt">
@@ -843,7 +845,7 @@ html{scroll-padding-top:104px}
       </div>
 
       <!-- PRATELEIRA 2: ARO -->
-      <div class="shelf" id="aro">
+      <div class="shelf brand" id="aro" role="tabpanel">
         <div class="shelf-head reveal">
           <div class="shelf-logo"><span class="logo-slot" data-logo="assets/marcas/aro"><span class="wm">ARO<small>Ingersoll Rand</small></span></span></div>
           <div class="shelf-txt">
@@ -882,7 +884,7 @@ html{scroll-padding-top:104px}
       </div>
 
       <!-- PRATELEIRA 3: HIGRA (único bloco onde "representante" pode aparecer) -->
-      <div class="shelf" id="higra">
+      <div class="shelf brand" id="higra" role="tabpanel">
         <div class="shelf-head reveal">
           <div class="shelf-logo"><span class="logo-slot" data-logo="assets/marcas/higra"><span class="wm">HIGRA</span></span></div>
           <div class="shelf-txt">
@@ -1381,8 +1383,23 @@ tryImg(heroCard.getAttribute('data-hero-img'), function(s){ heroCard.style.setPr
     new IntersectionObserver(function(en){ atForm = en[0].isIntersecting; upd(); }, {threshold:.05}).observe($('#orcamento'));
   }
 
-  // Menu do topo e abas da vitrine: marcam a seção que está na tela
-  var topLinks = $$('.nav-links a:not(.btn)'), shelfLinks = $$('.shelf-nav a');
+  // Abas da vitrine: trocam a marca exibida sem aumentar a página
+  var shelfLinks = $$('.shelf-nav a'), brands = ['kronox','aro','higra'];
+  var showShelf = function(id){
+    brands.forEach(function(b){ var el = document.getElementById(b); el.classList.toggle('on', b === id); $$('.reveal', el).forEach(function(r){ r.classList.add('in'); }); });
+    shelfLinks.forEach(function(a){ var on = a.hash === '#' + id; a.classList.toggle('active', on); a.setAttribute('aria-selected', on ? 'true' : 'false'); });
+  };
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href^="#"]'); if (!a) return;
+    var id = a.hash.slice(1); if (brands.indexOf(id) < 0) return;
+    e.preventDefault(); showShelf(id);
+    // link de fora das abas (marcas, aplicações, rodapé): leva até a vitrine
+    if (!a.closest('.shelf-nav')) $('.shelf-nav').scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'start'});
+  });
+  if (brands.indexOf(location.hash.slice(1)) >= 0) { showShelf(location.hash.slice(1)); $('.shelf-nav').scrollIntoView(); }
+
+  // Menu do topo: marca a seção que está na tela
+  var topLinks = $$('.nav-links a:not(.btn)');
   if (hasIO) {
     var spy = function(links, ids){
       var ob = new IntersectionObserver(function(es){ es.forEach(function(e){
@@ -1391,7 +1408,6 @@ tryImg(heroCard.getAttribute('data-hero-img'), function(s){ heroCard.style.setPr
       ids.forEach(function(id){ var el = document.getElementById(id); if (el) ob.observe(el); });
     };
     spy(topLinks, ['produtos','locacao','como-funciona','aplicacoes','diferenciais','faq','orcamento']);
-    spy(shelfLinks, ['kronox','aro','higra','locacao']);
     // "Produtos" não fica ativo enquanto a prateleira de locação está na tela
     new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) topLinks.forEach(function(a){ a.classList.toggle('active', a.hash === '#locacao'); }); }); }, {rootMargin:'-40% 0px -55% 0px'}).observe($('#locacao'));
     new IntersectionObserver(function(en){ if (en[0].isIntersecting) topLinks.forEach(function(a){ a.classList.remove('active'); }); }, {rootMargin:'-40% 0px -55% 0px'}).observe($('.hero'));
