@@ -146,6 +146,12 @@ ul,ol{margin:0;padding:0;list-style:none}
 .hero-panel::after{content:"";position:absolute;right:-80px;bottom:-120px;width:360px;height:360px;border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 30px,rgba(255,255,255,.07) 30px 31px)}
 /* Banner da arte (assets/banner-topo): fundo claro à esquerda, faixa vermelha e bombas no centro, painel azul à direita */
 .hero-card.has-img{background:#eaf3fd var(--hero-img) center bottom/cover no-repeat}
+/* banner de ponta a ponta: sem margem lateral, sem cantos arredondados */
+.hero:has(.hero-card.has-img){padding:0}
+.hero-card.has-img{max-width:none;border-radius:0;box-shadow:none;min-height:max(clamp(620px,46vw,720px),33vw)}
+@media (min-width:2000px){
+  .hero .hero-card.has-img .hero-inner{max-width:none;width:calc(100% - 22vw)}
+}
 .hero-card.has-img .hero-panel,.hero-card.has-img .hero-stripe,.hero-card.has-img .hero-lines{display:none}
 .hero-card.has-img .hero-inner{width:calc(100% - 2*clamp(28px,4vw,64px));max-width:1480px;grid-template-columns:minmax(0,1fr) minmax(0,390px)}
 .hero-card.has-img .hero-copy{max-width:580px}
