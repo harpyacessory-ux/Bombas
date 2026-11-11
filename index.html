@@ -718,9 +718,10 @@ html{scroll-padding-top:104px}
 .shelf.brand-shelf .shelf-txt h3{font-size:clamp(24px,2.5vw,36px);line-height:1.1;letter-spacing:-.03em;color:var(--navy-800)}
 .shelf.brand-shelf .shelf-txt p{font-size:clamp(15px,1.15vw,17px)}
 .shelf.brand-shelf .shelf-head::after{content:"";position:absolute;top:0;bottom:0;right:16px;width:40%;background:var(--red-600);clip-path:polygon(16% 0,100% 0,100% 100%,0 100%)}
-.shelf-art{position:absolute!important;top:0;bottom:0;right:0;z-index:1;width:40%;clip-path:polygon(16% 0,100% 0,100% 100%,0 100%);color:#fff;background:radial-gradient(circle at 70% 30%,rgba(77,150,235,.55),transparent 60%),linear-gradient(135deg,#0b3f8a,#061b38)!important}
+.shelf-art{position:absolute!important;top:0;bottom:0;right:0;z-index:1;width:40%;clip-path:polygon(16% 0,100% 0,100% 100%,0 100%);color:#fff}
+.shelf-art:not(.loaded){background:radial-gradient(circle at 70% 30%,rgba(77,150,235,.55),transparent 60%),linear-gradient(135deg,#0b3f8a,#061b38)}
 .shelf-art .ico{width:clamp(80px,9vw,130px);height:clamp(80px,9vw,130px);margin-left:16%;stroke-width:1;opacity:.35}
-.shelf-art.loaded{background-size:cover!important;background-position:center!important}
+.shelf-art.loaded{background-size:cover;background-position:center}
 .product{padding:0;overflow:hidden;border-radius:22px;border-color:#fff;box-shadow:0 22px 44px -30px rgba(10,43,87,.5)}
 .product .media{aspect-ratio:2/1;border-radius:0}
 .product-b{padding:20px clamp(18px,1.8vw,26px) 24px}
