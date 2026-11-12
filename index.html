@@ -1661,7 +1661,7 @@ var CONFIG = {
   privacyUrl: "#",
   campanha: "Bombas Industriais",
   // Versão das imagens: aumente ao adicionar ou trocar fotos em assets/ (força o navegador a buscar de novo)
-  assetVersion: "18"
+  assetVersion: "19"
 };
 
 /* GTM */
@@ -1698,7 +1698,7 @@ function grupoDe(lead){
 }
 
 /* Imagens: entram sozinhas quando o arquivo existir em assets/ (testa .webp, .jpg e .png) */
-var EXTS = ['.webp','.jpg','.png'];
+var EXTS = ['.jpg','.png','.webp'];
 function tryImg(base, ok, i){
   i = i || 0; if (i >= EXTS.length) return;
   var im = new Image();
@@ -1713,7 +1713,7 @@ document.querySelectorAll('[data-img]').forEach(function(el){
 document.querySelectorAll('[data-logo]').forEach(function(el){
   tryImg(el.getAttribute('data-logo'), function(s){
     var img = new Image(); img.src = s; img.alt = el.textContent.trim().split(/\s+/)[0]; el.appendChild(img); el.classList.add('loaded');
-  });
+  }, 1); /* logos são .png: começa direto pelo .png */
 });
 var heroCard = document.querySelector('[data-hero-img]');
 tryImg(heroCard.getAttribute('data-hero-img'), function(s){ heroCard.style.setProperty('--hero-img','url("'+s+'")'); heroCard.classList.add('has-img'); });
