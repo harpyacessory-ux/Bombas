@@ -944,6 +944,49 @@ html{scroll-padding-top:104px}
   .faq-list summary{padding:16px 56px 16px 18px}
 }
 
+/* ===== Especialista e orçamento: faixa maior, itens com ícone, formulário mais encorpado ===== */
+.talk .wrap{width:min(1440px,100% - 48px)}
+.talk::after{content:"";position:absolute;left:-6%;right:-6%;bottom:-1px;z-index:-1;height:clamp(90px,9vw,150px);background:linear-gradient(180deg,var(--red-600) 0 14%,#0a2a5c 14%);clip-path:ellipse(60% 100% at 50% 100%);opacity:.95;pointer-events:none}
+.cta{border-radius:26px;box-shadow:0 30px 60px -34px rgba(6,27,56,.7)}
+.cta h2{font-size:clamp(32px,3.2vw,52px)}
+.cta .btn{border-radius:12px;box-shadow:0 18px 30px -14px rgba(225,6,47,.7)}
+.cta-list .ico{color:var(--navy-800);stroke-width:1.6}
+.cta-list strong{font-size:clamp(17px,1.25vw,21px);color:var(--navy-800)}
+.cta-list span{font-size:clamp(14px,1.05vw,16.5px);color:#3a4a63}
+.contact{grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding-bottom:clamp(40px,5vw,90px)}
+.contact-copy h2{font-size:clamp(34px,3.6vw,56px)}
+.contact-copy h2 em{color:var(--blue-700)}
+.contact-copy>p{max-width:620px;font-size:clamp(16.5px,1.3vw,20px);color:#3a4a63}
+.contact-copy .eyebrow{font-size:14px}
+.send-data{max-width:none}
+.send-data h3{font-size:clamp(15px,1.15vw,18px)}
+.send-data ul{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.send-data li{gap:12px;padding:14px;border-color:#fff;border-radius:16px;box-shadow:0 14px 28px -20px rgba(10,43,87,.45)}
+.send-data .n{width:40px;height:40px;border-radius:12px;background:#eef3fb}
+.send-data .n .ico{width:22px;height:22px;stroke-width:1.7;color:var(--blue-700)}
+.send-data b{font-size:clamp(14.5px,1.1vw,16.5px);color:var(--navy-800)}
+.send-data span{font-size:13.5px;color:#3a4a63}
+.info{max-width:none;margin-top:26px}
+.info li{font-size:clamp(14.5px,1.1vw,16.5px)}
+.info .ico{width:24px;height:24px}
+.form-card{border-color:#fff;border-radius:24px;box-shadow:0 34px 64px -36px rgba(10,43,87,.5)}
+.form-card::after{height:6px}
+.form-card h3{font-size:clamp(26px,2.3vw,34px);letter-spacing:-.03em;color:var(--navy-800)}
+.form-card .hint{font-size:15.5px;color:#3a4a63}
+.field input,.field select,.field textarea{border-radius:12px;background:#fbfcfe}
+.seg label{min-height:50px;border-radius:12px;color:var(--navy-800)}
+.seg label .ico{width:20px;height:20px;stroke-width:1.8}
+.form-card .btn{min-height:60px;border-radius:14px;font-size:clamp(17px,1.3vw,20px);background:linear-gradient(180deg,#ff1f47,var(--red-600) 55%,#c4002a);box-shadow:0 18px 30px -14px rgba(225,6,47,.7)}
+@media (max-width:900px){
+  .contact{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .send-data ul{grid-template-columns:1fr 1fr}
+  .send-data li{padding:12px 10px;gap:10px}
+  .send-data .n{width:34px;height:34px}
+  .talk::after{height:70px}
+}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -983,7 +1026,7 @@ html{scroll-padding-top:104px}
   <symbol id="i-height" viewBox="0 0 24 24"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"/><path d="M3 21h4M17 3h4"/></symbol>
   <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7 15h10"/></symbol>
   <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="4"/></symbol>
-  <symbol id="i-clip" viewBox="0 0 24 24"><rect x="5" y="4.5" width="14" height="17" rx="2"/><path d="M9 4.5V3.8c0-.7.5-1.3 1.2-1.3h3.6c.7 0 1.2.6 1.2 1.3v.7M9 3.5h6"/><path d="m8 10 1 1 2-2M13 10.5h3M8 14.5l1 1 2-2M13 15h3M8.5 18.5h7"/></symbol><symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7" ry="2.8"/><path d="M5 5.5v13c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8v-13M5 10c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8M5 14.3c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8"/></symbol><symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2.5H6.5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2H11"/><path d="M14 2.5V7h4.5M14 2.5 18.5 7v5"/><path d="M8 11h7M8 14.5h5M8 18h2"/><path d="m13.5 18.5 2 2 4.5-4.5"/></symbol><symbol id="i-tools" viewBox="0 0 24 24"><path d="M14.5 6.5a3.5 3.5 0 0 0 4.7 4.2l1.3 1.3-2.2 2.2-1.3-1.3M14.5 6.5a3.5 3.5 0 0 1 4.2-3.3l-2.2 2.2.3 2 2 .3 2.2-2.2"/><path d="m15.4 9.8-11 11a1.6 1.6 0 0 1-2.2-2.2l11-11"/><path d="m4 4 2.5-1 4.5 4.5-1.5 1.5L5 4.5zM13 14l6.5 6.5a1.6 1.6 0 0 0 2.2-2.2L15.2 11.8"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 4.5-9 4.5-9-4.5L12 3Z"/><path d="m3 12 9 4.5 9-4.5M3 16.5 12 21l9-4.5"/></symbol><symbol id="i-rocket" viewBox="0 0 24 24"><path d="M14.5 4.5c2.8-1.6 5.5-2 6-1.5s.1 3.2-1.5 6l-6.5 6.5-4-4 6-7Z"/><path d="M8.5 11.5 5 11l-2 2 4.5 1M12.5 15.5l.5 3.5-2 2-1-4.5"/><circle cx="16" cy="8" r="1.4"/><path d="M6 18c-1 .5-2 2.5-2 2.5s2-1 2.5-2"/></symbol><symbol id="i-spark" viewBox="0 0 24 24"><path d="M15 3v3M15 12v3M10.5 7.5h3M16.5 7.5h3M18.5 4l-1.5 1.5M13 10l-1.5 1.5M18.5 11 17 9.5"/><path d="m4 20 6-6M6.5 13l.5 1.5M10.5 17l1.5.5M4 15.5h1.5"/></symbol><symbol id="i-help" viewBox="0 0 24 24"><path d="M12 3a8.5 8.5 0 0 0-7.4 12.7L3.5 20.5l4.9-1.2A8.5 8.5 0 1 0 12 3Z"/><path d="M9.6 9.4a2.5 2.5 0 0 1 4.8.9c0 1.7-2.4 2.2-2.4 3.7M12 16.6v.1"/></symbol><symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3.5 10h17M8 14h2M12 14h2M8 17.5h2"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24"><rect x="5" y="4.5" width="14" height="17" rx="2"/><path d="M9 4.5V3.8c0-.7.5-1.3 1.2-1.3h3.6c.7 0 1.2.6 1.2 1.3v.7M9 3.5h6"/><path d="m8 10 1 1 2-2M13 10.5h3M8 14.5l1 1 2-2M13 15h3M8.5 18.5h7"/></symbol><symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7" ry="2.8"/><path d="M5 5.5v13c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8v-13M5 10c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8M5 14.3c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8"/></symbol><symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2.5H6.5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2H11"/><path d="M14 2.5V7h4.5M14 2.5 18.5 7v5"/><path d="M8 11h7M8 14.5h5M8 18h2"/><path d="m13.5 18.5 2 2 4.5-4.5"/></symbol><symbol id="i-tools" viewBox="0 0 24 24"><path d="M14.5 6.5a3.5 3.5 0 0 0 4.7 4.2l1.3 1.3-2.2 2.2-1.3-1.3M14.5 6.5a3.5 3.5 0 0 1 4.2-3.3l-2.2 2.2.3 2 2 .3 2.2-2.2"/><path d="m15.4 9.8-11 11a1.6 1.6 0 0 1-2.2-2.2l11-11"/><path d="m4 4 2.5-1 4.5 4.5-1.5 1.5L5 4.5zM13 14l6.5 6.5a1.6 1.6 0 0 0 2.2-2.2L15.2 11.8"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 4.5-9 4.5-9-4.5L12 3Z"/><path d="m3 12 9 4.5 9-4.5M3 16.5 12 21l9-4.5"/></symbol><symbol id="i-rocket" viewBox="0 0 24 24"><path d="M14.5 4.5c2.8-1.6 5.5-2 6-1.5s.1 3.2-1.5 6l-6.5 6.5-4-4 6-7Z"/><path d="M8.5 11.5 5 11l-2 2 4.5 1M12.5 15.5l.5 3.5-2 2-1-4.5"/><circle cx="16" cy="8" r="1.4"/><path d="M6 18c-1 .5-2 2.5-2 2.5s2-1 2.5-2"/></symbol><symbol id="i-spark" viewBox="0 0 24 24"><path d="M15 3v3M15 12v3M10.5 7.5h3M16.5 7.5h3M18.5 4l-1.5 1.5M13 10l-1.5 1.5M18.5 11 17 9.5"/><path d="m4 20 6-6M6.5 13l.5 1.5M10.5 17l1.5.5M4 15.5h1.5"/></symbol><symbol id="i-help" viewBox="0 0 24 24"><path d="M12 3a8.5 8.5 0 0 0-7.4 12.7L3.5 20.5l4.9-1.2A8.5 8.5 0 1 0 12 3Z"/><path d="M9.6 9.4a2.5 2.5 0 0 1 4.8.9c0 1.7-2.4 2.2-2.4 3.7M12 16.6v.1"/></symbol><symbol id="i-cart" viewBox="0 0 24 24"><path d="M2.5 3.5h2.6l2.3 11.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1l1.6-6.3H6.2"/><circle cx="9.5" cy="19.8" r="1.4"/><circle cx="17" cy="19.8" r="1.4"/></symbol><symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3.5 10h17M8 14h2M12 14h2M8 17.5h2"/></symbol>
   <symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1.4 1.4 0 0 0 2-2"/><path d="m14 14 2.5 2.5a1.4 1.4 0 0 0 2-2l-3.9-3.9a2 2 0 0 0-2.8 0l-.9.9a1.4 1.4 0 0 1-2-2l2.8-2.8a4 4 0 0 1 4.2-.9l2.4.9h2.7"/><path d="M21 5.7v8.7h-2M3 5h4l-.7.7M3 14.4h2l3.5 3.5a1.4 1.4 0 0 0 2-2"/></symbol>
   <symbol id="i-water" viewBox="0 0 24 24"><path d="M3 15c2 0 2-1.5 4.5-1.5S10 15 12 15s2-1.5 4.5-1.5S19 15 21 15M3 19.5c2 0 2-1.5 4.5-1.5S10 19.5 12 19.5s2-1.5 4.5-1.5 2.5 1.5 4.5 1.5"/><path d="M12 3s3.5 3.6 3.5 6a3.5 3.5 0 0 1-7 0C8.5 6.6 12 3 12 3Z"/></symbol>
 </svg>
@@ -1434,12 +1477,12 @@ html{scroll-padding-top:104px}
           <div class="send-data">
             <h3>Para agilizar, envie se tiver:</h3>
             <ul>
-              <li><span class="n">1</span><div><b>Aplicação</b><span>mineração, drenagem, ETA, ETE</span></div></li>
-              <li><span class="n">2</span><div><b>Vazão</b><span>se tiver o valor</span></div></li>
-              <li><span class="n">3</span><div><b>Altura manométrica</b><span>desnível e perdas</span></div></li>
-              <li><span class="n">4</span><div><b>Fluido bombeado</b><span>água, efluente, químico</span></div></li>
-              <li><span class="n">5</span><div><b>Bomba atual</b><span>modelo ou foto</span></div></li>
-              <li><span class="n">6</span><div><b>Período de locação</b><span>só para aluguel</span></div></li>
+              <li><span class="n" aria-hidden="true"><svg class="ico"><use href="#i-gear"/></svg></span><div><b>Aplicação</b><span>mineração, drenagem, ETA, ETE</span></div></li>
+              <li><span class="n" aria-hidden="true"><svg class="ico"><use href="#i-drop"/></svg></span><div><b>Vazão</b><span>se tiver o valor</span></div></li>
+              <li><span class="n" aria-hidden="true"><svg class="ico"><use href="#i-height"/></svg></span><div><b>Altura manométrica</b><span>desnível e perdas</span></div></li>
+              <li><span class="n" aria-hidden="true"><svg class="ico"><use href="#i-flask"/></svg></span><div><b>Fluido bombeado</b><span>água, efluente, químico</span></div></li>
+              <li><span class="n" aria-hidden="true"><svg class="ico"><use href="#i-pump"/></svg></span><div><b>Bomba atual</b><span>modelo ou foto</span></div></li>
+              <li><span class="n" aria-hidden="true"><svg class="ico"><use href="#i-cal"/></svg></span><div><b>Período de locação</b><span>só para aluguel</span></div></li>
             </ul>
           </div>
           <ul class="info">
@@ -1455,8 +1498,8 @@ html{scroll-padding-top:104px}
             <div class="field">
               <span style="font-size:13px;font-weight:700;color:var(--navy-800)" id="tipo-lbl">Você precisa de*</span>
               <div class="seg" role="radiogroup" aria-labelledby="tipo-lbl">
-                <label><input type="radio" name="tipo" value="Compra" checked> Comprar equipamento</label>
-                <label class="rent"><input type="radio" name="tipo" value="Locação"> Alugar bomba</label>
+                <label><input type="radio" name="tipo" value="Compra" checked><svg class="ico" aria-hidden="true"><use href="#i-cart"/></svg> Comprar equipamento</label>
+                <label class="rent"><input type="radio" name="tipo" value="Locação"><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg> Alugar bomba</label>
               </div>
             </div>
             <div class="grid2">
