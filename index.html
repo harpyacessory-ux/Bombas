@@ -152,9 +152,11 @@ ul,ol{margin:0;padding:0;list-style:none}
 .hero-panel::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(120,170,255,.08) 1px,transparent 1px) 0 0/34px 34px,linear-gradient(90deg,rgba(120,170,255,.08) 1px,transparent 1px) 0 0/34px 34px}
 .hero-panel::after{content:"";position:absolute;right:-80px;bottom:-120px;width:360px;height:360px;border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 30px,rgba(255,255,255,.07) 30px 31px)}
 /* Banner da arte (assets/banner-topo): fundo claro à esquerda, faixa vermelha e bombas no centro, painel azul à direita */
-.hero-card.has-img{background:#eaf3fd var(--hero-img) 20% 40%/cover no-repeat}
-/* telas largas: imagem estendida à esquerda, encaixada pela altura, sem cortar as bombas */
-@media (min-width:1700px){.hero-card.has-img{background:#eaf3fd url(assets/banner-topo-largo.jpg?v=1) right bottom/auto 100% no-repeat}}
+.hero-card.has-img{background:#9fd3fc var(--hero-img) right bottom/cover no-repeat}
+/* telas mais largas que 8:3: imagem encaixada pela altura, fundo azul-claro continua à esquerda */
+@media (min-width:1921px){.hero-card.has-img{background-size:auto 100%}}
+/* telas médias: encaixa pela altura e empurra as bombas para a direita do texto (corta só um pouco da borda direita) */
+@media (min-width:901px) and (max-width:1920px){.hero-card.has-img{background-size:auto 100%;background-position:max(42vw - 1.355*clamp(620px,46vw,720px), 100vw - 2.667*clamp(620px,46vw,720px)) bottom}}
 /* banner de ponta a ponta: sem margem lateral, sem cantos arredondados */
 .hero:has(.hero-card.has-img){padding:0}
 .hero-card.has-img{max-width:none;border-radius:0 0 var(--round) var(--round);box-shadow:none;min-height:max(clamp(620px,46vw,720px),33vw)}
@@ -174,7 +176,6 @@ ul,ol{margin:0;padding:0;list-style:none}
   .hero-card.has-img .hero-points .ico{width:38px;height:38px;padding:8px}
 }
 @media (min-width:901px) and (max-width:1200px){
-  .hero-card.has-img{background-position:left bottom}
 }
 .hero-stripe{position:absolute;top:0;bottom:0;left:calc(56% - 14px);z-index:-1;width:150px;background:var(--red-600);clip-path:polygon(120px 0,128px 0,8px 100%,0 100%)}
 .hero-inner{width:min(1200px,100% - 2*clamp(28px,5vw,80px));margin-inline:auto;padding:56px 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:clamp(40px,6vw,96px);align-items:center}
@@ -541,7 +542,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   .hero-slot:empty{display:none}
   .hero-card.has-img .hero-inner{width:auto;grid-template-columns:1fr;gap:28px}
   .hero-card.has-img .hero-copy{max-width:640px}
-  .hero-card.has-img .hero-mob{display:block;width:100%;max-width:640px;aspect-ratio:6/5;background:#0a3478 var(--hero-img) 83% 50%/195% auto no-repeat;border-radius:18px;box-shadow:0 24px 44px -26px rgba(6,27,56,.6)}
+  .hero-card.has-img .hero-mob{display:block;width:100%;max-width:640px;aspect-ratio:6/5;background:#0a3478 var(--hero-img) right center/auto 100% no-repeat;border-radius:18px;box-shadow:0 24px 44px -26px rgba(6,27,56,.6)}
   .hero-inner{grid-template-columns:1fr;width:auto;padding:40px clamp(24px,5vw,48px) 40px;gap:40px}
   .hero-copy{max-width:640px}
   .chat{max-width:560px;width:100%;margin-inline:auto;height:500px}
@@ -1659,7 +1660,7 @@ var CONFIG = {
   privacyUrl: "#",
   campanha: "Bombas Industriais",
   // Versão das imagens: aumente ao adicionar ou trocar fotos em assets/ (força o navegador a buscar de novo)
-  assetVersion: "15"
+  assetVersion: "16"
 };
 
 /* GTM */
