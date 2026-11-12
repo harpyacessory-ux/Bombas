@@ -909,6 +909,41 @@ html{scroll-padding-top:104px}
   .a-ico{width:34px;height:34px}
 }
 
+/* ===== Dúvidas: fundo em arte, título com destaque vermelho, perguntas em pílulas ===== */
+.faq{background:#eef4fc}
+.faq::before{content:"";position:absolute;left:0;right:0;bottom:0;z-index:-1;height:min(100%,39.2vw);border-radius:0 0 var(--round) var(--round);background:url(assets/faq-fundo.jpg?v=1) center bottom/100% auto no-repeat;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 30%);mask-image:linear-gradient(180deg,transparent 0,#000 30%);pointer-events:none}
+.faq{padding-bottom:clamp(110px,10vw,170px)}
+.faq .wrap{width:min(1440px,100% - 48px);grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+.faq .head-left{position:static;padding-bottom:clamp(220px,20vw,340px)}
+.faq .head-left h2{font-size:clamp(36px,4.2vw,64px);line-height:1.08;letter-spacing:-.035em;color:var(--navy-800)}
+.faq .head-left h2 mark{position:relative;z-index:0;display:inline-block;margin:6px 0 2px -10px;padding:0 22px 4px 18px;background:none;color:#fff}
+.faq .head-left h2 mark::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#ff2a4f,var(--red-600) 60%,#c4002a);border-radius:14px 22px 22px 6px;transform:skewX(-8deg);box-shadow:0 18px 30px -16px rgba(225,6,47,.7)}
+.faq .head-left p{font-size:clamp(17px,1.5vw,22px);line-height:1.45;color:#3a4a63}
+.faq .head-left .btn{padding:16px 32px;border-radius:14px;font-size:clamp(16px,1.3vw,19px);box-shadow:0 18px 30px -14px rgba(225,6,47,.7)}
+.faq .eyebrow{font-size:14px}
+.faq-list{gap:10px}
+.faq-group{display:flex;align-items:center;gap:14px;margin:18px 0 4px;font-size:clamp(18px,1.6vw,24px);letter-spacing:.01em;color:var(--navy-800)}
+.faq-group:first-child{margin-top:0}
+.faq-group .ico{width:34px;height:34px;flex:none;stroke-width:2;color:var(--red-600)}
+.faq-group::after{content:"";flex:1;height:2px;margin-left:12px;background:var(--red-600)}
+.faq-list details{border:1px solid #fff;border-radius:18px;background:rgba(255,255,255,.94);box-shadow:0 14px 28px -20px rgba(10,43,87,.45)}
+.faq-list details[open]{border-color:#fff}
+.faq-list summary{padding:17px 64px 17px 26px;font-size:clamp(16px,1.3vw,19px);color:var(--navy-800)}
+.faq-list details p{margin:0 14px 14px;padding:12px 14px;border-radius:12px;background:#f1f5fb;font-size:15.5px;color:#3a4a63}
+@media (max-width:900px){
+  .faq .wrap{grid-template-columns:1fr}
+  .faq .head-left{padding-bottom:0}
+  .faq::before{height:520px;background-size:auto 520px;background-position:18% bottom}
+}
+@media (max-width:640px){
+  .faq .head-left h2 mark{margin-left:-4px;padding:0 12px 3px 10px}
+  .faq .head-left h2 mark::before{border-radius:10px 14px 14px 4px}
+  .faq{padding-bottom:300px}
+  .faq-group{font-size:18px}
+  .faq-group .ico{width:28px;height:28px}
+  .faq-list summary{padding:16px 56px 16px 18px}
+}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -948,7 +983,7 @@ html{scroll-padding-top:104px}
   <symbol id="i-height" viewBox="0 0 24 24"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"/><path d="M3 21h4M17 3h4"/></symbol>
   <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7 15h10"/></symbol>
   <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="4"/></symbol>
-  <symbol id="i-clip" viewBox="0 0 24 24"><rect x="5" y="4.5" width="14" height="17" rx="2"/><path d="M9 4.5V3.8c0-.7.5-1.3 1.2-1.3h3.6c.7 0 1.2.6 1.2 1.3v.7M9 3.5h6"/><path d="m8 10 1 1 2-2M13 10.5h3M8 14.5l1 1 2-2M13 15h3M8.5 18.5h7"/></symbol><symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7" ry="2.8"/><path d="M5 5.5v13c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8v-13M5 10c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8M5 14.3c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8"/></symbol><symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2.5H6.5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2H11"/><path d="M14 2.5V7h4.5M14 2.5 18.5 7v5"/><path d="M8 11h7M8 14.5h5M8 18h2"/><path d="m13.5 18.5 2 2 4.5-4.5"/></symbol><symbol id="i-tools" viewBox="0 0 24 24"><path d="M14.5 6.5a3.5 3.5 0 0 0 4.7 4.2l1.3 1.3-2.2 2.2-1.3-1.3M14.5 6.5a3.5 3.5 0 0 1 4.2-3.3l-2.2 2.2.3 2 2 .3 2.2-2.2"/><path d="m15.4 9.8-11 11a1.6 1.6 0 0 1-2.2-2.2l11-11"/><path d="m4 4 2.5-1 4.5 4.5-1.5 1.5L5 4.5zM13 14l6.5 6.5a1.6 1.6 0 0 0 2.2-2.2L15.2 11.8"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 4.5-9 4.5-9-4.5L12 3Z"/><path d="m3 12 9 4.5 9-4.5M3 16.5 12 21l9-4.5"/></symbol><symbol id="i-rocket" viewBox="0 0 24 24"><path d="M14.5 4.5c2.8-1.6 5.5-2 6-1.5s.1 3.2-1.5 6l-6.5 6.5-4-4 6-7Z"/><path d="M8.5 11.5 5 11l-2 2 4.5 1M12.5 15.5l.5 3.5-2 2-1-4.5"/><circle cx="16" cy="8" r="1.4"/><path d="M6 18c-1 .5-2 2.5-2 2.5s2-1 2.5-2"/></symbol><symbol id="i-spark" viewBox="0 0 24 24"><path d="M15 3v3M15 12v3M10.5 7.5h3M16.5 7.5h3M18.5 4l-1.5 1.5M13 10l-1.5 1.5M18.5 11 17 9.5"/><path d="m4 20 6-6M6.5 13l.5 1.5M10.5 17l1.5.5M4 15.5h1.5"/></symbol><symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3.5 10h17M8 14h2M12 14h2M8 17.5h2"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24"><rect x="5" y="4.5" width="14" height="17" rx="2"/><path d="M9 4.5V3.8c0-.7.5-1.3 1.2-1.3h3.6c.7 0 1.2.6 1.2 1.3v.7M9 3.5h6"/><path d="m8 10 1 1 2-2M13 10.5h3M8 14.5l1 1 2-2M13 15h3M8.5 18.5h7"/></symbol><symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7" ry="2.8"/><path d="M5 5.5v13c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8v-13M5 10c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8M5 14.3c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8"/></symbol><symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2.5H6.5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2H11"/><path d="M14 2.5V7h4.5M14 2.5 18.5 7v5"/><path d="M8 11h7M8 14.5h5M8 18h2"/><path d="m13.5 18.5 2 2 4.5-4.5"/></symbol><symbol id="i-tools" viewBox="0 0 24 24"><path d="M14.5 6.5a3.5 3.5 0 0 0 4.7 4.2l1.3 1.3-2.2 2.2-1.3-1.3M14.5 6.5a3.5 3.5 0 0 1 4.2-3.3l-2.2 2.2.3 2 2 .3 2.2-2.2"/><path d="m15.4 9.8-11 11a1.6 1.6 0 0 1-2.2-2.2l11-11"/><path d="m4 4 2.5-1 4.5 4.5-1.5 1.5L5 4.5zM13 14l6.5 6.5a1.6 1.6 0 0 0 2.2-2.2L15.2 11.8"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 4.5-9 4.5-9-4.5L12 3Z"/><path d="m3 12 9 4.5 9-4.5M3 16.5 12 21l9-4.5"/></symbol><symbol id="i-rocket" viewBox="0 0 24 24"><path d="M14.5 4.5c2.8-1.6 5.5-2 6-1.5s.1 3.2-1.5 6l-6.5 6.5-4-4 6-7Z"/><path d="M8.5 11.5 5 11l-2 2 4.5 1M12.5 15.5l.5 3.5-2 2-1-4.5"/><circle cx="16" cy="8" r="1.4"/><path d="M6 18c-1 .5-2 2.5-2 2.5s2-1 2.5-2"/></symbol><symbol id="i-spark" viewBox="0 0 24 24"><path d="M15 3v3M15 12v3M10.5 7.5h3M16.5 7.5h3M18.5 4l-1.5 1.5M13 10l-1.5 1.5M18.5 11 17 9.5"/><path d="m4 20 6-6M6.5 13l.5 1.5M10.5 17l1.5.5M4 15.5h1.5"/></symbol><symbol id="i-help" viewBox="0 0 24 24"><path d="M12 3a8.5 8.5 0 0 0-7.4 12.7L3.5 20.5l4.9-1.2A8.5 8.5 0 1 0 12 3Z"/><path d="M9.6 9.4a2.5 2.5 0 0 1 4.8.9c0 1.7-2.4 2.2-2.4 3.7M12 16.6v.1"/></symbol><symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3.5 10h17M8 14h2M12 14h2M8 17.5h2"/></symbol>
   <symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1.4 1.4 0 0 0 2-2"/><path d="m14 14 2.5 2.5a1.4 1.4 0 0 0 2-2l-3.9-3.9a2 2 0 0 0-2.8 0l-.9.9a1.4 1.4 0 0 1-2-2l2.8-2.8a4 4 0 0 1 4.2-.9l2.4.9h2.7"/><path d="M21 5.7v8.7h-2M3 5h4l-.7.7M3 14.4h2l3.5 3.5a1.4 1.4 0 0 0 2-2"/></symbol>
   <symbol id="i-water" viewBox="0 0 24 24"><path d="M3 15c2 0 2-1.5 4.5-1.5S10 15 12 15s2-1.5 4.5-1.5S19 15 21 15M3 19.5c2 0 2-1.5 4.5-1.5S10 19.5 12 19.5s2-1.5 4.5-1.5 2.5 1.5 4.5 1.5"/><path d="M12 3s3.5 3.6 3.5 6a3.5 3.5 0 0 1-7 0C8.5 6.6 12 3 12 3Z"/></symbol>
 </svg>
@@ -1350,17 +1385,17 @@ html{scroll-padding-top:104px}
     <div class="wrap">
       <div class="head-left reveal">
         <span class="eyebrow left">Perguntas frequentes</span>
-        <h2 id="faq-title">Dúvidas sobre bombas industriais e <em>locação</em></h2>
-        <p>Não encontrou sua resposta? Fale com a equipe técnica da Vazão.</p>
-        <a href="#orcamento" class="btn" data-cta="faq">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a>
+        <h2 id="faq-title">Dúvidas sobre <mark>bombas industriais</mark> e locação?</h2>
+        <p>Reunimos as principais perguntas para você esclarecer tudo de forma rápida e prática.</p>
+        <a href="#orcamento" class="btn" data-cta="faq">Fale com um especialista <svg class="ico"><use href="#i-arrow"/></svg></a>
       </div>
       <div class="faq-list reveal d1">
-        <p class="faq-group">Locação</p>
+        <p class="faq-group"><svg class="ico" aria-hidden="true"><use href="#i-help"/></svg>Locação</p>
         <details open><summary>A Vazão faz locação de bombas industriais?</summary><p>Sim. A equipe avalia a necessidade e define o equipamento ou sistema adequado à aplicação.</p></details>
         <details><summary>É possível alugar bombas para mineração?</summary><p>Sim, para drenagem, transferência de água, reforço de capacidade e sistemas dimensionados para a operação.</p></details>
         <details><summary>A locação inclui instalação?</summary><p>Depende do escopo contratado. A equipe define equipamentos, acessórios e serviços para a implantação.</p></details>
         <details><summary>Qual o período mínimo de locação?</summary><p>O período é definido conforme as características de cada projeto. Consulte nossa equipe.</p></details>
-        <p class="faq-group">Produtos</p>
+        <p class="faq-group"><svg class="ico" aria-hidden="true"><use href="#i-gear"/></svg>Bombas</p>
         <details><summary>O que é um Booster de Esgoto Kronox?</summary><p>Um sistema de bombeamento em linha, ligado à tubulação de coleta, que bombeia o efluente sem poço úmido de acumulação.</p></details>
         <details><summary>A solução Kronox reduz o rebaixamento de lençol freático?</summary><p>Dependendo da obra, uma elevatória mais rasa pode reduzir ou eliminar o rebaixamento contínuo. Cada projeto é avaliado tecnicamente.</p></details>
         <details><summary>Qual a diferença entre bomba pneumática e ARO EVO?</summary><p>O acionamento: a pneumática usa ar comprimido; a ARO EVO usa motor elétrico. A escolha depende do processo.</p></details>
