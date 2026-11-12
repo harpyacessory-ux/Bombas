@@ -152,7 +152,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .hero-panel::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(120,170,255,.08) 1px,transparent 1px) 0 0/34px 34px,linear-gradient(90deg,rgba(120,170,255,.08) 1px,transparent 1px) 0 0/34px 34px}
 .hero-panel::after{content:"";position:absolute;right:-80px;bottom:-120px;width:360px;height:360px;border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 30px,rgba(255,255,255,.07) 30px 31px)}
 /* Banner da arte (assets/banner-topo): fundo claro à esquerda, faixa vermelha e bombas no centro, painel azul à direita */
-.hero-card.has-img{background:#eaf3fd var(--hero-img) center bottom/cover no-repeat}
+.hero-card.has-img{background:#eaf3fd var(--hero-img) 20% 40%/cover no-repeat}
 /* banner de ponta a ponta: sem margem lateral, sem cantos arredondados */
 .hero:has(.hero-card.has-img){padding:0}
 .hero-card.has-img{max-width:none;border-radius:0 0 var(--round) var(--round);box-shadow:none;min-height:max(clamp(620px,46vw,720px),33vw)}
@@ -539,7 +539,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   .hero-slot:empty{display:none}
   .hero-card.has-img .hero-inner{width:auto;grid-template-columns:1fr;gap:28px}
   .hero-card.has-img .hero-copy{max-width:640px}
-  .hero-card.has-img .hero-mob{display:block;width:100%;max-width:640px;aspect-ratio:16/11;background:#0a3478 var(--hero-img) 63% 100%/230% auto no-repeat;border-radius:18px;box-shadow:0 24px 44px -26px rgba(6,27,56,.6)}
+  .hero-card.has-img .hero-mob{display:block;width:100%;max-width:640px;aspect-ratio:6/5;background:#0a3478 var(--hero-img) 83% 50%/195% auto no-repeat;border-radius:18px;box-shadow:0 24px 44px -26px rgba(6,27,56,.6)}
   .hero-inner{grid-template-columns:1fr;width:auto;padding:40px clamp(24px,5vw,48px) 40px;gap:40px}
   .hero-copy{max-width:640px}
   .chat{max-width:560px;width:100%;margin-inline:auto;height:500px}
@@ -1656,7 +1656,7 @@ var CONFIG = {
   privacyUrl: "#",
   campanha: "Bombas Industriais",
   // Versão das imagens: aumente ao adicionar ou trocar fotos em assets/ (força o navegador a buscar de novo)
-  assetVersion: "11"
+  assetVersion: "12"
 };
 
 /* GTM */
