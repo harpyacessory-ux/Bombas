@@ -944,6 +944,14 @@ html{scroll-padding-top:104px}
   .faq-list summary{padding:16px 56px 16px 18px}
 }
 
+.cta-photo{position:absolute;top:0;bottom:0;right:calc(var(--list) - 120px);z-index:0;width:min(52%,700px);background-size:cover;background-position:62% 20%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 38%);mask-image:linear-gradient(90deg,transparent 0,#000 38%);pointer-events:none}
+.cta-main{z-index:1}
+.cta-list{position:relative;z-index:2}
+.cta::after{content:"";position:absolute;top:0;bottom:0;right:0;z-index:1;width:calc(var(--list) + 12px);background:var(--red-600);clip-path:polygon(110px 0,100% 0,100% 100%,0 100%);pointer-events:none}
+@media (max-width:900px){
+  .cta-photo{position:relative;right:auto;width:auto;height:clamp(200px,40vw,320px);grid-row:1;background-position:65% 25%;-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent);mask-image:linear-gradient(180deg,#000 55%,transparent)}
+  .cta::after{display:none}
+}
 /* ===== Especialista e orçamento: faixa maior, itens com ícone, formulário mais encorpado ===== */
 .talk .wrap{width:min(1440px,100% - 48px)}
 .talk::after{content:"";position:absolute;left:-6%;right:-6%;bottom:-1px;z-index:-1;height:clamp(90px,9vw,150px);background:linear-gradient(180deg,var(--red-600) 0 14%,#0a2a5c 14%);clip-path:ellipse(60% 100% at 50% 100%);opacity:.95;pointer-events:none}
@@ -1452,6 +1460,7 @@ html{scroll-padding-top:104px}
     <section class="cta-section" aria-labelledby="cta-title">
       <div class="wrap">
         <div class="cta reveal">
+          <div class="cta-photo" data-img="assets/especialista" aria-hidden="true"></div>
           <div class="cta-main">
             <span class="eyebrow">Fale com um especialista</span>
             <h2 id="cta-title">Não escolha a bomba pelo tamanho.</h2>
